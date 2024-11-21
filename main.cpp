@@ -14,7 +14,11 @@ int main(int argc, char* argv[])
     print_node_graph(special_node, argv[argc-2]);
     latex_dump(special_node, argv[argc-1]);
     
-
+    printf("Please enter value of variable x:");
+    double variable = 0;
+    scanf("%lg", &variable);
+    double answer = calculate_value(special_node, variable);
+    printf("%lg", answer);
     tree_dtor(special_node);
     return 0;
 }

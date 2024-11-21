@@ -1,8 +1,12 @@
+#ifndef DIFF_FUNC
+#define DIFF_FUNC
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<assert.h>
 #include"D:\STUDYC\My_labraries\colours.h"
 #include<string.h>
+#include<math.h>
 
 const int word_for_graph = 30;
 
@@ -46,8 +50,12 @@ int tree_dtor(diff_node_t* root);
 int dtor_node(diff_node_t* node_ptr);
 int node_dump(diff_node_t* node);
 
+double calculate_value(diff_node_t* node, double variable);
+
 int latex_dump(diff_node_t* node, char argv[]);
 int generate_latex_dump(diff_node_t* node, FILE* file);
 
 int print_node_graph(diff_node_t* node, char argv[]);
 int generate_graph(diff_node_t* node, FILE* file);
+
+#endif
