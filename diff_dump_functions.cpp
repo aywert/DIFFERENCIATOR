@@ -30,7 +30,7 @@ int print_node_graph(diff_node_t* node, char argv[])
 {
     assert(node);
     assert(argv);
-    printf("%s", argv);
+    
     FILE* file = fopen(argv, "w");
     fprintf(file, "digraph list\n{\nrankdir=HR;\n\t");
 
@@ -89,22 +89,28 @@ int generate_graph(diff_node_t* node, FILE* file)
 
 int latex_dump(diff_node_t* node, char argv[])
 {
-    FILE* file = fopen(argv, "w");
+  assert(argv);
+  assert(node);
 
-    fprintf(file, "\\documentclass{article}\n\\begin{document}\n");
-    fprintf(file, "$");
-    generate_latex_dump(node, file);
-    fprintf(file, "$\n");
-    fprintf(file, "\\end{document}\n");
+  FILE* file = fopen(argv, "w");
 
-    fclose(file); file = NULL;
-    system("pdflatex -output-directory=log_folder_differenciator\\LATEX log_folder_differenciator\\LATEX\\LATEX_dump.tex");
+  fprintf(file, "\\documentclass{article}\n\\begin{document}\n");
+  fprintf(file, "$");
+  generate_latex_dump(node, file);
+  fprintf(file, "$\n");
+  fprintf(file, "\\end{document}\n");
 
-    return 0;
+  fclose(file); file = NULL;
+  system("pdflatex -output-directory=log_folder_differenciator\\LATEX log_folder_differenciator\\LATEX\\LATEX_dump.tex -quiet");
+
+  return 0;
 }
 
 int generate_latex_dump(diff_node_t* node, FILE* file)
 {
+  assert(node);
+  assert(file);
+
   switch(node->type)
   {
     case OP:

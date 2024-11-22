@@ -9,7 +9,7 @@ OBJFILES := main.o differenciator_functions.o diff_dump_functions.o
 all: $(NAMEEXE)
 
 run: $(NAMEEXE)
-	.\$(NAMEEXE) log_folder_differenciator//differenciator_graph.dot log_folder_differenciator//LATEX//LATEX_dump.tex
+	.\$(NAMEEXE) log_folder_differenciator//differenciator_graph.dot log_folder_differenciator//LATEX//LATEX_dump.tex log_folder_differenciator//READING_file.txt
 
 $(NAMEEXE) : $(OBJFILES)
 	@g++ $(OBJFILES) -o $@ $(LFLAGS)

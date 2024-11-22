@@ -8,7 +8,8 @@
 #include<string.h>
 #include<math.h>
 
-const int word_for_graph = 30;
+const int size_limit = 500;
+const int operation_word = 10;
 
 enum types_for_diff
 {
@@ -24,9 +25,9 @@ enum math_comands
     DIV = '/',
     MUL = '*',
 
-    SIN = 's',
-    COS = 'c',
-    SQR = 'r',
+    SIN = 253,
+    COS = 254,
+    SQR = 251,
 };
 
 // union value_t
@@ -49,6 +50,9 @@ diff_node_t* ctor_node(types_for_diff type, /*union value_t*/ int value, diff_no
 int tree_dtor(diff_node_t* root);
 int dtor_node(diff_node_t* node_ptr);
 int node_dump(diff_node_t* node);
+
+diff_node_t* diff_reader(char argv[]);
+diff_node_t* diff_reader_recursion(char* buffer);
 
 double calculate_value(diff_node_t* node, double variable);
 
