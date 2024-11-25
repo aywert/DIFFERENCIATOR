@@ -1,5 +1,5 @@
-#include"differenciator_functions.h"
-#include"differenciator_DSL.h"
+#include"INCLUDE\\diff_reading_functions.h"
+#include"INCLUDE\\differenciator_DSL.h"
 
 static int partition_for_reading(char* buffer);
 
@@ -52,69 +52,6 @@ int dtor_node(diff_node_t* node_ptr)
     return 0; 
 }
 
-double calculate_value(diff_node_t* node, double variable)
-{
-  switch(node->type)
-  {
-    case OP:
-
-    switch(node->value)
-    {
-      case DIV:
-        return calculate_value(node->left, variable) / calculate_value(node->right, variable);
-        break;
-
-      case MUL:
-      {
-        return calculate_value(node->left, variable) * calculate_value(node->right, variable);
-        break;
-      }
-
-      case ADD:
-        return calculate_value(node->left, variable) + calculate_value(node->right, variable);
-        break;
-
-      case SUB:
-      {
-        return calculate_value(node->left, variable) - calculate_value(node->right, variable);
-        break;
-      }
-
-      case SIN:
-      {
-        return sin(calculate_value(node->left, variable));
-        break;
-      }
-
-      case COS:
-      {
-        return cos(calculate_value(node->left, variable));
-        break;
-      }
-
-      case SQR:
-      {
-        return sqrt(calculate_value(node->left, variable));
-        break;
-      }
-
-      default:
-        printf(RED("CRUSHIIIIIIIIIIIING"));
-        break;
-    }
-    break;
-
-    case NUM: return node->value; break;
-    case VAR: return variable;    break;
-
-    default:
-    printf(RED("i died\n"));
-    return -666;
-  }
-
-  return 0;
-}
-
 diff_node_t* diff_reader(const char* file_name)
 {
   assert(file_name);
@@ -122,12 +59,12 @@ diff_node_t* diff_reader(const char* file_name)
   assert(file);
 
   struct stat file_inf = {};
-
+  
   stat(file_name, &file_inf);
+  
+  char* buffer = (char*)calloc((size_t)file_inf.st_size + 1, sizeof(char));
+  fread(buffer, sizeof(char), (size_t)file_inf.st_size, file);
 
-  char* buffer = (char*)calloc(file_inf.st_size, sizeof(char));
-
-  fread(buffer, sizeof(char), file_inf.st_size, file);
   fclose(file);
 
   diff_node_t* node = diff_reader_recursion(buffer);
@@ -142,7 +79,7 @@ diff_node_t* diff_reader_recursion(char* buffer)
   
   printf("buffer = %s\n", buffer);
 
-  char* operation = (char*)calloc(operation_word, 1); // name
+  char* operation = (char*)calloc(operation_word, 1); 
   assert(operation);
   int pc = partition_for_reading(buffer);
   
@@ -151,7 +88,7 @@ diff_node_t* diff_reader_recursion(char* buffer)
     sscanf(buffer, "(%[^)]", operation);
     printf("oper = %s\n", operation);
     char char_read = operation[0];
-    int int_read = 0;
+    int  int_read = 0;
     int read_item = sscanf(operation, "%d", &int_read); 
 
     free(operation); operation = NULL;
@@ -193,6 +130,30 @@ diff_node_t* diff_reader_recursion(char* buffer)
     {
       free(operation); operation = NULL;
       return _DIV(diff_reader_recursion(&buffer[1]), diff_reader_recursion(&buffer[pc+1]));
+    }
+
+    if (strcmp(operation, "^") == 0)
+    {
+      free(operation); operation = NULL;
+      return _POW(diff_reader_recursion(&buffer[1]), diff_reader_recursion(&buffer[pc+1]));
+    }
+
+    if (strcmp(operation, "sqrt") == 0)
+    {
+      free(operation); operation = NULL;
+      return _SQRT(diff_reader_recursion(&buffer[pc+4]));
+    }
+
+    if (strcmp(operation, "sin") == 0)
+    {
+      free(operation); operation = NULL;
+      return _SIN(diff_reader_recursion(&buffer[pc+3]));
+    }
+
+    if (strcmp(operation, "cos") == 0)
+    {
+      free(operation); operation = NULL;
+      return _COS(diff_reader_recursion(&buffer[pc+3]));
     }
 
     printf(RED("SOMETHING TERRIBLE HEPPENED\n"));

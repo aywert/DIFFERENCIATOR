@@ -1,4 +1,4 @@
-#include"differenciator_functions.h"
+#include"INCLUDE\\diff_dump_functions.h"
 
 int node_dump(diff_node_t* node)
 {
@@ -38,7 +38,7 @@ int print_node_graph(diff_node_t* node, const char* file_name)
 
     fprintf(file, "}");
     fclose(file); file = NULL;
-    system("dot -T png log_folder_differenciator//differenciator_graph.dot -o  log_folder_differenciator//differenciator_graph.png");
+    system("dot -T png log_folder_differenciator//differenciator_graph.dot -o  log_folder_differenciator//differenciator_graph.png -Gcharset=latin1");
     return 0;
 }
 
@@ -46,8 +46,6 @@ int generate_graph(diff_node_t* node, FILE* file)
 {
     assert(node);
     assert(file);
-
-    static int label = 0;
     
     if (node->type == NUM)
     {
@@ -67,20 +65,15 @@ int generate_graph(diff_node_t* node, FILE* file)
         (int)&node->value,                                                                                                                       node->value,  node->left,     node->right);
     }
 
-    if (label != 0)
-    {
-        fprintf(file, "%d -> %d [color=\"blue\"]\n\t", label, (int)&node->value);
-    }
-
     if (node->left)
     {
-        label = (int)&node->value;
+        fprintf(file, "%d -> %d [color=\"blue\"]\n\t", (int)&node->value, (int)&node->left->value);
         generate_graph(node->left, file);
     }
 
     if (node->right) 
     {
-        label = (int)&node->value;
+        fprintf(file, "%d -> %d [color=\"blue\"]\n\t", (int)&node->value, (int)&node->right->value);
         generate_graph(node->right, file);
     }
 
@@ -161,25 +154,35 @@ int generate_latex_dump(diff_node_t* node, FILE* file)
 
       case SIN:
       {
-        fprintf(file, "\\sin{");
-        generate_latex_dump(node->left, file);
-        fprintf(file, "}");
+        fprintf(file, "\\sin{(");
+        generate_latex_dump(node->right, file);
+        fprintf(file, ")}");
         break;
       }
 
       case COS:
       {
-        fprintf(file, "\\cos{");
-        generate_latex_dump(node->left, file);
-        fprintf(file, "}");
+        fprintf(file, "\\cos{(");
+        generate_latex_dump(node->right, file);
+        fprintf(file, ")}");
         break;
       }
 
-      case SQR:
+      case SQRT:
       {
-        fprintf(file, "{\\sqrt{");
+        fprintf(file, "{\\sqrt{(");
+        generate_latex_dump(node->right, file);
+        fprintf(file, ")}");
+        break;
+      }
+
+      case POW:
+      {
+        fprintf(file, "{(");
         generate_latex_dump(node->left, file);
-        fprintf(file, "}");
+        fprintf(file, ")^{(");
+        generate_latex_dump(node->right, file);
+        fprintf(file, ")}");
         break;
       }
 
