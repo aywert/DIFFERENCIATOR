@@ -115,21 +115,24 @@ double calculate_value(diff_node_t* node, double variable)
   return 0;
 }
 
-diff_node_t* diff_reader(char argv[])
+diff_node_t* diff_reader(const char* file_name)
 {
-  assert(argv);
-  FILE* file = fopen(argv, "r");
+  assert(file_name);
+  FILE* file = fopen(file_name, "r");
+  assert(file);
 
-  char buffer[size_limit]={};
-  fread(buffer, sizeof(char), size_limit, file);
+  struct stat file_inf = {};
 
+  stat(file_name, &file_inf);
+
+  char* buffer = (char*)calloc(file_inf.st_size, sizeof(char));
+
+  fread(buffer, sizeof(char), file_inf.st_size, file);
   fclose(file);
-  
 
   diff_node_t* node = diff_reader_recursion(buffer);
-  
-  
-  
+
+  free(buffer); buffer = NULL;
   return node;
 }
 
@@ -139,92 +142,57 @@ diff_node_t* diff_reader_recursion(char* buffer)
   
   printf("buffer = %s\n", buffer);
 
-  char* oper = (char*)calloc(operation_word, 1);
-  assert(oper);
+  char* operation = (char*)calloc(operation_word, 1); // name
+  assert(operation);
   int pc = partition_for_reading(buffer);
   
   if (pc < 0)
   {
-    sscanf(buffer, "(%[^)]", oper);
-    printf("oper = %s\n", oper);
-    char char_read = oper[0];
+    sscanf(buffer, "(%[^)]", operation);
+    printf("oper = %s\n", operation);
+    char char_read = operation[0];
     int int_read = 0;
-    int read_item = sscanf(oper, "%d", &int_read);
+    int read_item = sscanf(operation, "%d", &int_read); 
 
-    free(oper); oper = NULL;
+    free(operation); operation = NULL;
 
     if (read_item == 1)
-    { 
       return _NUM(int_read);
-    }
-
     else
-    {
       return _VAR(char_read);
-    }
-    // printf("\nread_item = %d\n", read_item);
-    // printf("oper_n = %d\n", oper_n);
-    // printf(GREEN("oper = %s"), oper);
   }
 
   else
   {
-   
-    char left_buffer[size_limit]  = {};
-    char right_buffer[size_limit] = {};
-  
+    printf("left_buffer = %s\n", &buffer[1]);
 
-    for (int i = 1; i < pc; i++)
+    printf("right_buffer = %s\n", &buffer[pc+1]);
+
+    sscanf(&buffer[pc], "%[^(]", operation);
+    printf(RED("oper = %s\n"), operation);
+
+    if (strcmp(operation, "+") == 0)
     {
-      left_buffer[i-1] = buffer[i];
-      //printf("i am okey\n");
-      //printf("%c", left_buffer[i]);
-    }
-    printf("left_buffer = %s\n", left_buffer);
-
-    //printf("\n");
-
-    //printf("\n");
-
-    int i = pc + 1;
-    while(buffer[i+1] != '\0')
-    {
-      //printf("i am okey2\n");
-      right_buffer[i-pc-1] = buffer[i];
-      //printf("%c", right_buffer[i]);
-      i++;
-    }
-    printf("right_buffer = %s\n", right_buffer);
-    //printf("\n");
-
-    // printf(RED("\nleft_buffer = %s\n"), left_buffer);
-    // printf(RED("right_buffer = %s\n"), right_buffer);
-    
-    sscanf(&buffer[pc], "%[^(]", oper);
-    printf(RED("oper = %s\n"), oper);
-    
-    if (strcmp(oper, "+") == 0)
-    {
-      free(oper); oper = NULL;
-      return _ADD(diff_reader_recursion(left_buffer), diff_reader_recursion(right_buffer));
+      free(operation); operation = NULL;
+      return _ADD(diff_reader_recursion(&buffer[1]), diff_reader_recursion(&buffer[pc+1]));
     }
 
-    if (strcmp(oper, "-") == 0)
+    if (strcmp(operation, "-") == 0)
     {
-      free(oper); oper = NULL;
-      return _SUB(diff_reader_recursion(left_buffer), diff_reader_recursion(right_buffer));
+      free(operation); operation = NULL;
+      return _SUB(diff_reader_recursion(&buffer[1]), diff_reader_recursion(&buffer[pc+1]));
     }
 
-    if (strcmp(oper, "*") == 0)
+    if (strcmp(operation, "*") == 0)
     {
-      free(oper); oper = NULL;
-      return _MUL(diff_reader_recursion(left_buffer), diff_reader_recursion(right_buffer));
+      free(operation); operation = NULL;
+      return _MUL(diff_reader_recursion(&buffer[1]), diff_reader_recursion(&buffer[pc+1]));
     }
 
-    if (strcmp(oper, "/") == 0)
+    if (strcmp(operation, "/") == 0)
     {
-      free(oper); oper = NULL;
-      return _DIV(diff_reader_recursion(left_buffer), diff_reader_recursion(right_buffer));
+      free(operation); operation = NULL;
+      return _DIV(diff_reader_recursion(&buffer[1]), diff_reader_recursion(&buffer[pc+1]));
     }
 
     printf(RED("SOMETHING TERRIBLE HEPPENED\n"));
@@ -239,17 +207,19 @@ int partition_for_reading(char* buffer)
   int bracket_ct_in  = 0;
   int bracket_ct_out = 0;
 
-  while((((bracket_ct_in - bracket_ct_out) != 1) || (bracket_ct_out == 0))&&buffer[pc] != '\0')
+  while((((bracket_ct_in - bracket_ct_out) != 1) || (bracket_ct_out == 0)) && buffer[pc] != '\0' )
   {
-    //printf("%c", buffer[pc]);
     if (buffer[pc] == '(')
       bracket_ct_in++;
     if (buffer[pc] == ')')
       bracket_ct_out++;
     pc++;
+
+    if (bracket_ct_in == bracket_ct_out && (bracket_ct_in == 1))
+      break;
   }
 
-  if (bracket_ct_in == 1 && bracket_ct_out == 1)
+  if (bracket_ct_in == 1)// && bracket_ct_out == 1
   {
     printf("partition\n");
     return -1;

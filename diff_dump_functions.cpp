@@ -26,12 +26,12 @@ int node_dump(diff_node_t* node)
     return 0;
 }
 
-int print_node_graph(diff_node_t* node, char argv[])
+int print_node_graph(diff_node_t* node, const char* file_name)
 {
     assert(node);
-    assert(argv);
+    assert(file_name);
     
-    FILE* file = fopen(argv, "w");
+    FILE* file = fopen(file_name, "w");
     fprintf(file, "digraph list\n{\nrankdir=HR;\n\t");
 
     generate_graph(node, file);
@@ -87,12 +87,12 @@ int generate_graph(diff_node_t* node, FILE* file)
     return 0;
 }
 
-int latex_dump(diff_node_t* node, char argv[])
+int latex_dump(diff_node_t* node, const char* file_name)
 {
-  assert(argv);
+  assert(file_name);
   assert(node);
 
-  FILE* file = fopen(argv, "w");
+  FILE* file = fopen(file_name, "w");
 
   fprintf(file, "\\documentclass{article}\n\\begin{document}\n");
   fprintf(file, "$");
@@ -129,7 +129,9 @@ int generate_latex_dump(diff_node_t* node, FILE* file)
       {
         fprintf(file, "(");
         generate_latex_dump(node->left, file);
+        fprintf(file, ")");
         fprintf(file, "\\cdot");
+        fprintf(file, "(");
         generate_latex_dump(node->right, file);
         fprintf(file, ")");
         break;
@@ -138,7 +140,9 @@ int generate_latex_dump(diff_node_t* node, FILE* file)
       case ADD:
         fprintf(file, "(");
         generate_latex_dump(node->left, file);
+        fprintf(file, ")");
         fprintf(file, " + ");
+        fprintf(file, "(");
         generate_latex_dump(node->right, file);
         fprintf(file, ")");
         break;
@@ -147,7 +151,9 @@ int generate_latex_dump(diff_node_t* node, FILE* file)
       {
         fprintf(file, "(");
         generate_latex_dump(node->left, file);
+        fprintf(file, ")");
         fprintf(file, " - ");
+        fprintf(file, "(");
         generate_latex_dump(node->right, file);
         fprintf(file, ")");
         break;
