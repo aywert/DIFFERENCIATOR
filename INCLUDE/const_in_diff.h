@@ -14,10 +14,13 @@ enum math_comands
     DIV = '/',
     MUL = '*',
     POW = '^',
+    LOG = 249,
+    LN  = 250,
 
+    SQRT = 251,
     SIN = 253,
     COS = 254,
-    SQRT = 251,
+    
 };
 
 enum types_for_diff

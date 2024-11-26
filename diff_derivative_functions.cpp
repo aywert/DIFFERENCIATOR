@@ -124,10 +124,18 @@ diff_node_t* get_derivative_of_node(diff_node_t* node)
             return _MUL(_DIV(_NUM(1), _MUL(_NUM(2), get_copy_of_node(node))), get_derivative_of_node(node->right));
           break;
 
+          case LN:
+            return _MUL(_DIV(_NUM(1), get_copy_of_node(node->right)), get_derivative_of_node(node->right));
+          break;
+
+          case LOG:
+            return _MUL(_DIV(_NUM(1), _MUL(_LN(get_copy_of_node(node->left)), get_copy_of_node(node->right))), get_derivative_of_node(node->right));
+          break;
+
           case POW:
             printf("!!!!!!%d!!!!\n", get_copy_of_node(node)->left->type);
             printf("11!!!!!!%d!!!!\n", get_copy_of_node(node)->left->value);
-            return  _MUL(_MUL(_NUM(node->right->value), _POW(get_copy_of_node(node)->left, _NUM(node->right->value - 1))), get_derivative_of_node(node->left));
+            return  _MUL(get_copy_of_node(node), get_derivative_of_node(_MUL(_LN(get_copy_of_node(node->left)), get_copy_of_node(node->right))));
           break;
 
           default:

@@ -186,6 +186,24 @@ int generate_latex_dump(diff_node_t* node, FILE* file)
         break;
       }
 
+      case LOG:
+      {
+        fprintf(file, "(\\log_{");
+        generate_latex_dump(node->left, file);
+        fprintf(file, "}{(");
+        generate_latex_dump(node->right, file);
+        fprintf(file, ")})");
+        break;
+      }
+
+      case LN:
+      {
+        fprintf(file, "(\\ln{(");
+        generate_latex_dump(node->right, file);
+        fprintf(file, ")})");
+        break;
+      }
+
       default:
         printf(RED("CRUSHIIIIIIIIIIIING"));
         break;

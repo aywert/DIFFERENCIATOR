@@ -12,8 +12,10 @@
 #define _SUB(L, R) ctor_node(OP, '-', L, R)
 #define _POW(L, R) ctor_node(OP, '^', L, R)
 
-#define _SIN(R) ctor_node(OP, 253, NULL, R)
-#define _COS(R) ctor_node(OP, 254, NULL, R)
-#define _SQRT(R) ctor_node(OP, 251, NULL, R)
+#define _SIN(R)     ctor_node(OP, 253, NULL, R)
+#define _COS(R)     ctor_node(OP, 254, NULL, R)
+#define _SQRT(R)    ctor_node(OP, 251, NULL, R)
+#define _LOG(L, R)  ctor_node(OP, 249, L, R)
+#define _LN(R)      ctor_node(OP, 250, NULL, R)
 
 #endif

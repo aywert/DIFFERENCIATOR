@@ -138,6 +138,18 @@ diff_node_t* diff_reader_recursion(char* buffer)
       return _POW(diff_reader_recursion(&buffer[1]), diff_reader_recursion(&buffer[pc+1]));
     }
 
+    if (strcmp(operation, "log") == 0)
+    {
+      free(operation); operation = NULL;
+      return _LOG(diff_reader_recursion(&buffer[1]), diff_reader_recursion(&buffer[pc+3]));
+    }
+
+    if (strcmp(operation, "ln") == 0)
+    {
+      free(operation); operation = NULL;
+      return _LN(diff_reader_recursion(&buffer[pc+2]));
+    }
+
     if (strcmp(operation, "sqrt") == 0)
     {
       free(operation); operation = NULL;
