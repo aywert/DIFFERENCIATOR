@@ -1,51 +1,71 @@
 #include"INCLUDE\\diff_dump_functions.h"
+#include"INCLUDE\\assert_for_dump.h"
 
-int node_dump(diff_node_t* node)
+static diff_dump_status verifier_for_dump_functions(diff_node_t* node, char* file_name)
 {
-    assert(node);
-    printf("(");
-
-    if (node->type == NUM)
-    {
-        printf("%d", node->value);
-    }
-
-    else
-    {
-        printf("%c", node->value);
-    }
-
-    if (node->left)  node_dump(node->left);
-    //else printf("()");
-
-    if (node->right) node_dump(node->right);
-    //else printf("()");
-
-    printf(")");
+  if (node == NULL)
+  {
+    printf(RED("%s have recieved null-pointer on ") BLUE("node") RED(" and is not able to do anything with it"), __FUNCTION__);
+    printf(YELLOW("Returning zero"));
+    return diff_dump_failure;
+  }
     
-    return 0;
+  if (file_name == NULL)
+  {
+    printf(RED("%s have recieved null-pointer on ") BLUE("file") RED(" and is not able to do anything with it"), __FUNCTION__);
+    printf(YELLOW("Returning zero"));
+    return diff_dump_failure;
+  }
+
+  return diff_dump_success;
 }
 
-int print_node_graph(diff_node_t* node, const char* file_name)
+diff_dump_status node_dump(diff_node_t* node)
 {
-    assert(node);
-    assert(file_name);
-    
-    FILE* file = fopen(file_name, "w");
-    fprintf(file, "digraph list\n{\nrankdir=HR;\n\t");
+  DIFF_DUMP_ASSERT(node, 1);
 
-    generate_graph(node, file);
+  printf("(");
 
-    fprintf(file, "}");
+  if (node->type == NUM)
+      printf("%d", node->value);
+
+  else
+      printf("%c", node->value);
+
+  if (node->left)  node_dump(node->left);
+  if (node->right) node_dump(node->right);
+
+  printf(")");
+  
+  return diff_dump_success;
+}
+
+diff_dump_status print_node_graph(diff_node_t* node, const char* file_name)
+{   
+  DIFF_DUMP_ASSERT(node, 1);
+
+  FILE* file = fopen(file_name, "w");
+
+  if (file == NULL)
+  {
     fclose(file); file = NULL;
-    system("dot -T png log_folder_differenciator//differenciator_graph.dot -o  log_folder_differenciator//differenciator_graph.png -Gcharset=latin1");
-    return 0;
+    return diff_dump_failure;
+  }
+
+  fprintf(file, "digraph list\n{\nrankdir=HR;\n\t");
+
+  generate_graph(node, file);
+  fprintf(file, "}");
+
+  fclose(file); file = NULL;
+  
+  system("dot -T png " file_graph_input " -o " file_graph_output " -Gcharset=latin1");
+  return diff_dump_success;
 }
 
-int generate_graph(diff_node_t* node, FILE* file)
+diff_dump_status generate_graph(diff_node_t* node, FILE* file)
 {
-    assert(node);
-    assert(file);
+    DIFF_DUMP_ASSERT(node, file);
     
     if (node->type == NUM)
     {
@@ -77,15 +97,19 @@ int generate_graph(diff_node_t* node, FILE* file)
         generate_graph(node->right, file);
     }
 
-    return 0;
+    return diff_dump_success;
 }
 
-int latex_dump(diff_node_t* node, const char* file_name)
+diff_dump_status latex_dump(diff_node_t* node, const char* file_name)
 {
-  assert(file_name);
-  assert(node);
-
+  DIFF_DUMP_ASSERT(node, 1);
   FILE* file = fopen(file_name, "w");
+  
+  if (file == NULL)
+  {
+    fclose(file); file = NULL;
+    return diff_dump_failure;
+  }
 
   fprintf(file, "\\documentclass{article}\n\\begin{document}\n");
   fprintf(file, "$");
@@ -96,13 +120,12 @@ int latex_dump(diff_node_t* node, const char* file_name)
   fclose(file); file = NULL;
   system("pdflatex -output-directory=log_folder_differenciator\\LATEX log_folder_differenciator\\LATEX\\LATEX_dump.tex -quiet");
 
-  return 0;
+  return diff_dump_success;
 }
 
 int generate_latex_dump(diff_node_t* node, FILE* file)
 {
-  assert(node);
-  assert(file);
+  DIFF_DUMP_ASSERT(node, file);
 
   switch(node->type)
   {

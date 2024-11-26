@@ -17,9 +17,9 @@ diff_node_t* ctor_node(types_for_diff type, /*value_t*/int value, diff_node_t* l
     //     case VAR: node->value.var = value.var;
     //     case NUM: node->value.num = value.num;
     // }
-    node->value = value;
-
+    
     node->type  = type;
+    node->value = value;
     node->right = right;
     node->left  = left;  
 
@@ -59,7 +59,6 @@ diff_node_t* diff_reader(const char* file_name)
   assert(file);
 
   struct stat file_inf = {};
-  
   stat(file_name, &file_inf);
   
   char* buffer = (char*)calloc((size_t)file_inf.st_size + 1, sizeof(char));
@@ -77,24 +76,25 @@ diff_node_t* diff_reader_recursion(char* buffer)
 {
   assert(buffer);
   
-  printf("buffer = %s\n", buffer);
-
+  //printf("buffer = %s\n", buffer);
   char* operation = (char*)calloc(operation_word, 1); 
   assert(operation);
   int pc = partition_for_reading(buffer);
   
-  if (pc < 0)
+  if (pc == NOT_AN_OPERATOR_PTR)
   {
     sscanf(buffer, "(%[^)]", operation);
-    printf("oper = %s\n", operation);
+    printf("operation = %s\n", operation);
+
     char char_read = operation[0];
-    int  int_read = 0;
-    int read_item = sscanf(operation, "%d", &int_read); 
+    int  int_read  = 0;
+    int  read_item = sscanf(operation, "%d", &int_read); 
 
     free(operation); operation = NULL;
 
     if (read_item == 1)
       return _NUM(int_read);
+
     else
       return _VAR(char_read);
   }
@@ -168,8 +168,9 @@ diff_node_t* diff_reader_recursion(char* buffer)
       return _COS(diff_reader_recursion(&buffer[pc+3]));
     }
 
-    printf(RED("SOMETHING TERRIBLE HEPPENED\n"));
-    return 0;
+    printf(RED("COMMAND HAVE NOT BEEN REGOCNISED\n"));
+    printf(YELLOW("So i am returning zero-pointer\n"));
+    return NULL;
   }
 }
 
@@ -194,8 +195,7 @@ int partition_for_reading(char* buffer)
 
   if (bracket_ct_in == 1)// && bracket_ct_out == 1
   {
-    printf("partition\n");
-    return -1;
+    return NOT_AN_OPERATOR_PTR;
   }
 
   return pc;

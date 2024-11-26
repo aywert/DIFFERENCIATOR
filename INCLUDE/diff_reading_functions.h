@@ -7,9 +7,13 @@
 #include<math.h>
 #include<sys\stat.h>
 
-#define file_for_graph   "log_folder_differenciator//differenciator_graph.dot"
 #define file_for_LATEX   "log_folder_differenciator//LATEX//LATEX_dump.tex"
 #define file_for_reading "log_folder_differenciator//READING_file.txt"
+
+enum
+{
+    NOT_AN_OPERATOR_PTR = -1,
+};
 
 diff_node_t* ctor_node(types_for_diff type, /*union value_t*/ int value, diff_node_t* left, diff_node_t* right);
 int tree_dtor(diff_node_t* root);

@@ -32,12 +32,13 @@ int main(void)
     diff_node_t* diffed_node = {};
     diffed_node = get_derivative_of_node(node);
     latex_dump(diffed_node, file_for_LATEX);
-    print_node_graph(diffed_node, file_for_graph);
-    print_node_graph(diffed_node, file_for_graph);
+    print_node_graph(diffed_node, file_graph_input);
 
-    printf("what above is me!\n");
-    printf("^ = %d\n", '^');
+    // printf("%s", __FUNCTION__);
+    // printf("what above is me!\n");
+    // printf("^ = %d\n", '^');
     tree_dtor(node);
     tree_dtor(diffed_node);
+
     return 0;
 }

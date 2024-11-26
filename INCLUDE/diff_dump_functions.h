@@ -6,12 +6,21 @@
 #include<assert.h>
 #include<stdlib.h>
 
-int node_dump(diff_node_t* node);
+#define file_graph_input  "log_folder_differenciator//differenciator_graph.dot"
+#define file_graph_output "log_folder_differenciator//differenciator_graph.png"
 
-int print_node_graph(diff_node_t* node, const char* file);
-int generate_graph(diff_node_t* node, FILE* file);
+enum diff_dump_status
+{
+    diff_dump_failure = 0,
+    diff_dump_success = 1,
+};
 
-int latex_dump(diff_node_t* node, const char* file);
+diff_dump_status node_dump(diff_node_t* node);
+
+diff_dump_status print_node_graph(diff_node_t* node, const char* file);
+diff_dump_status generate_graph(diff_node_t* node, FILE* file);
+
+diff_dump_status latex_dump(diff_node_t* node, const char* file);
 int generate_latex_dump(diff_node_t* node, FILE* file);
 
 #endif
