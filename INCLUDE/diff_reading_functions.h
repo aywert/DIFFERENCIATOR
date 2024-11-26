@@ -15,7 +15,7 @@ enum
     NOT_AN_OPERATOR_PTR = -1,
 };
 
-diff_node_t* ctor_node(types_for_diff type, /*union value_t*/ int value, diff_node_t* left, diff_node_t* right);
+diff_node_t* ctor_node(types_for_diff type, dvalue_t value, diff_node_t* left, diff_node_t* right);
 int tree_dtor(diff_node_t* root);
 int dtor_node(diff_node_t* node_ptr);
 

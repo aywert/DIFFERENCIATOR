@@ -6,8 +6,9 @@ double calculate_value(diff_node_t* node, double variable)
   switch(node->type)
   {
     case OP:
-
-    switch(node->value)
+    printf("(int)node->value = %d\n", (int)node->value);
+    printf("(int)node->value = %c\n", (char)node->value);
+    switch((int)node->value)
     {
       case DIV:
         return calculate_value(node->left, variable) / calculate_value(node->right, variable);
@@ -31,19 +32,37 @@ double calculate_value(diff_node_t* node, double variable)
 
       case SIN:
       {
-        return sin(calculate_value(node->left, variable));
+        return sin(calculate_value(node->right, variable));
         break;
       }
 
       case COS:
       {
-        return cos(calculate_value(node->left, variable));
+        return cos(calculate_value(node->right, variable));
+        break;
+      }
+
+      case LN:
+      {
+        return log((calculate_value(node->right, variable)));
+        break;
+      }
+
+      case POW:
+      {
+        return pow(calculate_value(node->left, variable), calculate_value(node->right, variable));
+        break;
+      }
+
+      case LOG:
+      {
+        return log(calculate_value(node->right, variable))/log(calculate_value(node->left, variable));
         break;
       }
 
       case SQRT:
       {
-        return sqrt(calculate_value(node->left, variable));
+        return sqrt(calculate_value(node->right, variable));
         break;
       }
 
@@ -93,7 +112,7 @@ diff_node_t* get_derivative_of_node(diff_node_t* node)
     break;
 
     case OP:
-      switch(node->value)
+      switch((int)node->value)
         {
           case DIV:
             return _DIV(_SUB(_MUL(get_derivative_of_node(node->left), get_copy_of_node(node->right)), _MUL(get_copy_of_node(node->left), get_derivative_of_node(node->right))), 
@@ -133,8 +152,8 @@ diff_node_t* get_derivative_of_node(diff_node_t* node)
           break;
 
           case POW:
-            printf("!!!!!!%d!!!!\n", get_copy_of_node(node)->left->type);
-            printf("11!!!!!!%d!!!!\n", get_copy_of_node(node)->left->value);
+            //printf("!!!!!!%d!!!!\n", get_copy_of_node(node)->left->type);
+            //printf("11!!!!!!%d!!!!\n", get_copy_of_node(node)->left->value);
             return  _MUL(get_copy_of_node(node), get_derivative_of_node(_MUL(_LN(get_copy_of_node(node->left)), get_copy_of_node(node->right))));
           break;
 

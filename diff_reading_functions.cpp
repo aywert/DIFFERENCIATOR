@@ -3,7 +3,7 @@
 
 static int partition_for_reading(char* buffer);
 
-diff_node_t* ctor_node(types_for_diff type, /*value_t*/int value, diff_node_t* left, diff_node_t* right)
+diff_node_t* ctor_node(types_for_diff type, dvalue_t value, diff_node_t* left, diff_node_t* right)
 {
     assert(type);
 
@@ -87,13 +87,13 @@ diff_node_t* diff_reader_recursion(char* buffer)
     printf("operation = %s\n", operation);
 
     char char_read = operation[0];
-    int  int_read  = 0;
-    int  read_item = sscanf(operation, "%d", &int_read); 
-
+    dvalue_t read  = 0;
+    int read_item = sscanf(operation, "%lg", &read); 
+    //printf("read = %lg\n", read);
     free(operation); operation = NULL;
 
     if (read_item == 1)
-      return _NUM(int_read);
+      return _NUM(read);
 
     else
       return _VAR(char_read);

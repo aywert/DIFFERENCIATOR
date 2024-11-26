@@ -27,10 +27,10 @@ diff_dump_status node_dump(diff_node_t* node)
   printf("(");
 
   if (node->type == NUM)
-      printf("%d", node->value);
+      printf("%lg", node->value);
 
   else
-      printf("%c", node->value);
+      printf("%c", (char)node->value);
 
   if (node->left)  node_dump(node->left);
   if (node->right) node_dump(node->right);
@@ -69,20 +69,20 @@ diff_dump_status generate_graph(diff_node_t* node, FILE* file)
     
     if (node->type == NUM)
     {
-        fprintf(file, "%d [shape = Mrecord; style = filled; fillcolor=\"#4682b4\"; color = \"#000000\"; fontcolor = \"#000000\"; label = \"{ NUM | value = %d | left = %p| right = %p}\"];\n\t", 
+        fprintf(file, "%d [shape = Mrecord; style = filled; fillcolor=\"#4682b4\"; color = \"#000000\"; fontcolor = \"#000000\"; label = \"{ NUM | value = %lg | left = %p| right = %p}\"];\n\t", 
                     (int)&node->value,                                                                                                          node->value,  node->left,     node->right);
     }
 
     if (node->type == VAR)
     {
         fprintf(file, "%d [shape = Mrecord; style = filled; fillcolor=\"#ff7da3\"; color = \"#000000\"; fontcolor = \"#000000\"; label = \"{ VAR | value = %c | left = %p| right = %p}\"];\n\t", 
-        (int)&node->value,                                                                                                                        node->value,  node->left,     node->right);
+        (int)&node->value,                                                                                                                        (char)node->value,  node->left,     node->right);
     }
 
     if (node->type == OP)
     {
         fprintf(file, "%d [shape = Mrecord; style = filled; fillcolor=\"#ffc765\"; color = \"#000000\"; fontcolor = \"#000000\"; label = \"{ OP | value = %c | left = %p| right = %p}\"];\n\t", 
-        (int)&node->value,                                                                                                                       node->value,  node->left,     node->right);
+        (int)&node->value,                                                                                                                       (char)node->value,  node->left,     node->right);
     }
 
     if (node->left)
@@ -131,7 +131,7 @@ int generate_latex_dump(diff_node_t* node, FILE* file)
   {
     case OP:
 
-    switch(node->value)
+    switch((int)node->value)
     {
       case DIV:
         fprintf(file, "\\frac{");
@@ -233,8 +233,8 @@ int generate_latex_dump(diff_node_t* node, FILE* file)
     }
     break;
 
-    case NUM: fprintf(file, "%d", node->value); break;
-    case VAR: fprintf(file, "%c", node->value); break;
+    case NUM: fprintf(file, "%lg", node->value); break;
+    case VAR: fprintf(file, "%c", (char)node->value); break;
     default:
     printf(RED("i died\n"));
   }

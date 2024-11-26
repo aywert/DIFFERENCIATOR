@@ -19,16 +19,17 @@ int main(void)
     
     diff_node_t* node = diff_reader(file_for_reading);
     
+    print_node_graph(node, file_graph_input);
     node_dump(node);
     printf(GREEN("\n====================\n"));
-    
+    //latex_dump(node, file_for_LATEX);
     // latex_dump(node, file_for_LATEX);
     // print_node_graph(node, file_for_graph);
-                // printf("Please enter value of variable x:");
-                // double variable = 0;
-                // scanf("%lg", &variable);
-                // double answer = calculate_value(node, variable);
-                // printf("%lg\n", answer);
+                printf("Please enter value of variable x:");
+                dvalue_t variable = 0;
+                scanf("%lg", &variable);
+                dvalue_t answer = calculate_value(node, variable);
+                printf(GREEN("Answer is %lg\n"), answer);
     diff_node_t* diffed_node = {};
     diffed_node = get_derivative_of_node(node);
     latex_dump(diffed_node, file_for_LATEX);

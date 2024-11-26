@@ -7,6 +7,8 @@
 
 const int operation_word = 10;
 
+typedef double dvalue_t;
+
 enum math_comands
 {
     ADD = '+',
@@ -33,7 +35,7 @@ enum types_for_diff
 struct diff_node_t
 {
     types_for_diff type;
-    int value;
+    dvalue_t value;
     //union value_t value;
     diff_node_t* left;
     diff_node_t* right;
