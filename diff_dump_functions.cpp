@@ -170,7 +170,7 @@ int generate_latex_dump(diff_node_t* node, FILE* file)
 
       case SQRT:
       {
-        fprintf(file, "{\\sqrt{(");
+        fprintf(file, "\\sqrt{(");
         generate_latex_dump(node->right, file);
         fprintf(file, ")}");
         break;
@@ -178,7 +178,7 @@ int generate_latex_dump(diff_node_t* node, FILE* file)
 
       case POW:
       {
-        fprintf(file, "{(");
+        fprintf(file, "(");
         generate_latex_dump(node->left, file);
         fprintf(file, ")^{(");
         generate_latex_dump(node->right, file);
