@@ -27,7 +27,8 @@ diff_node_t* ctor_node(types_for_diff type, dvalue_t value, diff_node_t* left, d
 }
 int tree_dtor(diff_node_t* root)
 {
-    assert(root);
+    if (root == NULL)
+      return 0;
 
     if (root->left)
     {

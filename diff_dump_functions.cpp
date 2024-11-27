@@ -113,17 +113,20 @@ diff_dump_status latex_dump(diff_node_t* node, const char* file_name)
 
   fprintf(file, "\\documentclass{article}\n\\begin{document}\n");
   fprintf(file, "$");
-  generate_latex_dump(node, file);
+  diff_dump_status status = generate_latex_dump(node, file);
   fprintf(file, "$\n");
   fprintf(file, "\\end{document}\n");
 
   fclose(file); file = NULL;
-  system("pdflatex -output-directory=log_folder_differenciator\\LATEX log_folder_differenciator\\LATEX\\LATEX_dump.tex -quiet");
 
+  if (status == diff_dump_failure)
+    return diff_dump_failure;
+
+  system("pdflatex -output-directory=log_folder_differenciator\\LATEX log_folder_differenciator\\LATEX\\LATEX_dump.tex -quiet");
   return diff_dump_success;
 }
 
-int generate_latex_dump(diff_node_t* node, FILE* file)
+diff_dump_status generate_latex_dump(diff_node_t* node, FILE* file)
 {
   DIFF_DUMP_ASSERT(node, file);
 
@@ -233,7 +236,8 @@ int generate_latex_dump(diff_node_t* node, FILE* file)
 
       default:
       {
-        printf(RED("CRUSHIIIIIIIIIIIING"));
+        printf(RED("SNTX_LATEX_ERROR\n"));
+        return diff_dump_failure;
         break;
       }
     }
@@ -242,8 +246,9 @@ int generate_latex_dump(diff_node_t* node, FILE* file)
     case NUM: fprintf(file, "%lg", node->value); break;
     case VAR: fprintf(file, "%c", (char)node->value); break;
     default:
-    printf(RED("i died\n"));
+    printf(RED("LATEX_dump dead\n"));
+    return diff_dump_failure;
   }
 
-    return 0;
+    return diff_dump_success;
 }

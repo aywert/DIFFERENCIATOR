@@ -5,7 +5,7 @@
 #include<math.h>
 
 const long double epsilon_for_comparing_doubles = 0.000001;
-const int poison_colculation = -666;
+const int poison_calculation = -666;
 
 enum branch_status 
 {

@@ -19,9 +19,9 @@ int main(void)
     
     diff_node_t* node = diff_reader(file_for_reading);
     
-    print_node_graph(node, file_graph_input);
-    node_dump(node);
-    printf(GREEN("\n====================\n"));
+    // print_node_graph(node, file_graph_input);
+    // node_dump(node);
+    //printf(GREEN("\n====================\n"));
 
     //branch_status output = is_var_on_the_branch(node->right->left);
 
@@ -33,16 +33,21 @@ int main(void)
     //             scanf("%lg", &variable);
     //             dvalue_t answer = calculate_value(node, variable);
     //             printf(GREEN("Answer is %lg\n"), answer);
-    diff_node_t* diffed_node = {};
-    diffed_node = get_derivative_of_node(node);
-    print_node_graph(diffed_node, file_graph_input);
-    dvalue_t variable = 2;
-    simplify_function(diffed_node, variable);
+    // diff_node_t* diffed_node = {};
+    // diffed_node = get_derivative_of_node(node);
+    //print_node_graph(diffed_node, file_graph_input);
+    //dvalue_t variable = 3;
+    // int b = is_var_on_the_branch(diffed_node->left->left);
+    // printf(GREEN("b = %d"), b);
 
-    latex_dump(diffed_node, file_for_LATEX);
+    //simplify_function(diffed_node, variable);
+    node_dump(node);
+    print_node_graph(node, file_graph_input);
+
+    latex_dump(node, file_for_LATEX);
     //print_node_graph(diffed_node, file_graph_input);
 
-    tree_dtor(diffed_node);
+    //tree_dtor(diffed_node);
     tree_dtor(node);
 
     return 0;

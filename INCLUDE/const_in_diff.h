@@ -21,8 +21,8 @@ enum math_comands
     LN  = 250,
 
     SQRT = 251,
-    SIN = 253,
-    COS = 254,
+    SIN  = 253,
+    COS  = 254,
     
 };
 

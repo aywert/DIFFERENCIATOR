@@ -21,6 +21,6 @@ diff_dump_status print_node_graph(diff_node_t* node, const char* file);
 diff_dump_status generate_graph(diff_node_t* node, FILE* file);
 
 diff_dump_status latex_dump(diff_node_t* node, const char* file);
-int generate_latex_dump(diff_node_t* node, FILE* file);
+diff_dump_status generate_latex_dump(diff_node_t* node, FILE* file);
 
 #endif
