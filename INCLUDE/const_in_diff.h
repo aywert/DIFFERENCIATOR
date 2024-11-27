@@ -6,6 +6,7 @@
 #include<assert.h>
 
 const int operation_word = 10;
+const int inf = 999999;
 
 typedef double dvalue_t;
 

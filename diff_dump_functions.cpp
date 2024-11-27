@@ -134,12 +134,14 @@ int generate_latex_dump(diff_node_t* node, FILE* file)
     switch((int)node->value)
     {
       case DIV:
+      {
         fprintf(file, "\\frac{");
         generate_latex_dump(node->left, file);
         fprintf(file, "}{");
         generate_latex_dump(node->right, file);
         fprintf(file, "}");
         break;
+      }
 
       case MUL:
       {
@@ -154,6 +156,7 @@ int generate_latex_dump(diff_node_t* node, FILE* file)
       }
 
       case ADD:
+      {
         fprintf(file, "(");
         generate_latex_dump(node->left, file);
         fprintf(file, ")");
@@ -162,6 +165,7 @@ int generate_latex_dump(diff_node_t* node, FILE* file)
         generate_latex_dump(node->right, file);
         fprintf(file, ")");
         break;
+      }
 
       case SUB:
       {
@@ -228,8 +232,10 @@ int generate_latex_dump(diff_node_t* node, FILE* file)
       }
 
       default:
+      {
         printf(RED("CRUSHIIIIIIIIIIIING"));
         break;
+      }
     }
     break;
 
