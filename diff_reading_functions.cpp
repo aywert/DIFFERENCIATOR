@@ -32,12 +32,12 @@ int tree_dtor(diff_node_t* root)
 
     if (root->left)
     {
-        tree_dtor(root->left);
+      tree_dtor(root->left);
     }
 
     if (root->right)
     {
-        tree_dtor(root->right);
+      tree_dtor(root->right);
     }
 
     dtor_node(root); root = NULL;

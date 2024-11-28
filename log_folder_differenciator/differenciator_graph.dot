@@ -1,13 +1,33 @@
 digraph list
 {
 rankdir=HR;
-	11933216 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = ^ | left = 00B615F8| right = 00B615D8}"];
-	11933216 -> 11933184 [color="blue"]
-	11933184 [shape = Mrecord; style = filled; fillcolor="#ff7da3"; color = "#000000"; fontcolor = "#000000"; label = "{ VAR | value = x | left = 00000000| right = 00000000}"];
-	11933216 -> 11933152 [color="blue"]
-	11933152 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = + | left = 00B615B8| right = 00B61598}"];
-	11933152 -> 11933120 [color="blue"]
-	11933120 [shape = Mrecord; style = filled; fillcolor="#4682b4"; color = "#000000"; fontcolor = "#000000"; label = "{ NUM | value = 1 | left = 00000000| right = 00000000}"];
-	11933152 -> 11933088 [color="blue"]
-	11933088 [shape = Mrecord; style = filled; fillcolor="#4682b4"; color = "#000000"; fontcolor = "#000000"; label = "{ NUM | value = 2 | left = 00000000| right = 00000000}"];
+	11431152 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = + | left = 00AE6C88| right = 00AE69E8}"];
+	11431152 -> 11431056 [color="blue"]
+	11431056 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = * | left = 00AE6988| right = 00AE6C48}"];
+	11431056 -> 11430288 [color="blue"]
+	11430288 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = + | left = 00AE6BE8| right = 00AE6C08}"];
+	11430288 -> 11430896 [color="blue"]
+	11430896 [shape = Mrecord; style = filled; fillcolor="#4682b4"; color = "#000000"; fontcolor = "#000000"; label = "{ NUM | value = 0 | left = 00000000| right = 00000000}"];
+	11430288 -> 11430928 [color="blue"]
+	11430928 [shape = Mrecord; style = filled; fillcolor="#4682b4"; color = "#000000"; fontcolor = "#000000"; label = "{ NUM | value = 2 | left = 00000000| right = 00000000}"];
+	11431056 -> 11430992 [color="blue"]
+	11430992 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = * | left = 00AE6968| right = 00AE6AC8}"];
+	11430992 -> 11430256 [color="blue"]
+	11430256 [shape = Mrecord; style = filled; fillcolor="#4682b4"; color = "#000000"; fontcolor = "#000000"; label = "{ NUM | value = 2 | left = 00000000| right = 00000000}"];
+	11430992 -> 11430608 [color="blue"]
+	11430608 [shape = Mrecord; style = filled; fillcolor="#ff7da3"; color = "#000000"; fontcolor = "#000000"; label = "{ VAR | value = x | left = 00000000| right = 00000000}"];
+	11431152 -> 11430384 [color="blue"]
+	11430384 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = * | left = 00AE6B88| right = 00AE04B0}"];
+	11430384 -> 11430800 [color="blue"]
+	11430800 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = * | left = 00AE69A8| right = 00AE6BC8}"];
+	11430800 -> 11430320 [color="blue"]
+	11430320 [shape = Mrecord; style = filled; fillcolor="#4682b4"; color = "#000000"; fontcolor = "#000000"; label = "{ NUM | value = 2 | left = 00000000| right = 00000000}"];
+	11430800 -> 11430864 [color="blue"]
+	11430864 [shape = Mrecord; style = filled; fillcolor="#ff7da3"; color = "#000000"; fontcolor = "#000000"; label = "{ VAR | value = x | left = 00000000| right = 00000000}"];
+	11430384 -> 11404472 [color="blue"]
+	11404472 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = + | left = 00AE1700| right = 00AE69C8}"];
+	11404472 -> 11409160 [color="blue"]
+	11409160 [shape = Mrecord; style = filled; fillcolor="#4682b4"; color = "#000000"; fontcolor = "#000000"; label = "{ NUM | value = 0 | left = 00000000| right = 00000000}"];
+	11404472 -> 11430352 [color="blue"]
+	11430352 [shape = Mrecord; style = filled; fillcolor="#4682b4"; color = "#000000"; fontcolor = "#000000"; label = "{ NUM | value = 2 | left = 00000000| right = 00000000}"];
 	}

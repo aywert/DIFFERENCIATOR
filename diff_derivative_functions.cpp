@@ -1,5 +1,6 @@
 #include"INCLUDE\\diff_derivative_functions.h"
 #include"INCLUDE\\differenciator_DSL.h"
+#include"INCLUDE\\diff_dump_functions.h"
 
 //TODO debug this thing
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -41,10 +42,56 @@ double_compare_status compare_double(double a, double b)
     return double_smaller;
 }
 
-// if (node == NULL)
-//   printf(YELLOW("Nothing to simplify - %s"), __FUNCTION__);
-
 void simplify_function(diff_node_t* node, dvalue_t variable)
+{
+  diff_node_t* prev_node = NULL;
+
+  while(1)
+  {
+    prev_node = get_copy_of_node(node);
+    count_countable_nodes(node, variable);
+    make_easy_reduction(node);
+
+    if (compare_tree(prev_node, node) == equal_trees)
+      break;
+  }
+}
+
+compare_tree_status compare_tree(diff_node_t* root_1, diff_node_t* root_2)
+{
+  if (compare_double(root_1->value, root_2->value) == double_equal)
+  {
+    if (root_1->left != NULL && root_2->left != NULL)
+      return compare_tree(root_1->left, root_2->left);
+    else  
+
+    if (root_1->right != NULL && root_2->right != NULL)
+    {
+      return compare_tree(root_1->right, root_2->right);
+    }
+    return equal_trees;
+  }
+  else
+    return different_trees;
+}
+
+void make_easy_reduction(diff_node_t* node)
+{
+
+  if ((node->left != NULL) && (int)node->left->type == OP) 
+  {
+    simple_fire(node->left);
+    make_easy_reduction(node->left);
+  }
+
+  if ((node->right != NULL) && (int)node->right->type == OP) 
+  {
+    simple_fire(node->right);
+    make_easy_reduction(node->right);
+  }
+}
+
+void count_countable_nodes(diff_node_t* node, dvalue_t variable)
 { 
   if (is_var_on_the_branch(node->left) == var_not_on_the_branch)
   {
@@ -58,7 +105,8 @@ void simplify_function(diff_node_t* node, dvalue_t variable)
 
   else
   {
-    simplify_function(node->left, variable);
+    count_countable_nodes(node->left, variable);
+    //simple_fire(node->left);
   }
 
   if (is_var_on_the_branch(node->right) == var_not_on_the_branch)
@@ -73,86 +121,164 @@ void simplify_function(diff_node_t* node, dvalue_t variable)
 
   else
   {
-    simplify_function(node->right, variable);
+    count_countable_nodes(node->right, variable);
+    //simple_fire(node);
   }
 }
 
-diff_node_t* simple_fire(diff_node_t* node)
+void replace_node(diff_node_t* node_to_replace, diff_node_t* new_node)
+{
+  node_to_replace->type  = new_node->type; 
+  node_to_replace->value = new_node->value;
+  
+  diff_node_t* tempor_right = new_node->right;
+  diff_node_t* tempor_left  = new_node->left;
+
+  dtor_node(node_to_replace->left);
+  dtor_node(node_to_replace->right);
+
+  node_to_replace->right = tempor_right;
+  node_to_replace->left  = tempor_left;  
+}
+
+// int reform_function(diff_node_t* node)
+// {
+//   if ()
+//   //simple_fire(node);
+// }
+
+
+
+simplify_status simple_fire(diff_node_t* node)
 {
   //int error_counter = 0;
+  if (node == NULL)
+    return cant_be_simplified;
+  
+  if (node->type != OP)
+    return TYPE_ERROR_SMPLF;
+
   switch((int)node->value)
   {
     case ADD:
-    if (compare_double(node->left->value, 0) == double_equal)
+    if (node->left->type == NUM && compare_double(node->left->value, 0) == double_equal)
     {
-      node->type  = node->right->type; 
-      node->value = node->right->value;
-      node->right = node->right->right;
-      node->left  = node->right->left; 
-      dtor_node(node->left);
-      dtor_node(node->right);
+      node_dump(node);
+      replace_node(node, node->right); 
+      //printf("i'm alive?");
+      printf("\n");
+      node_dump(node);
+      return cant_be_simplified;
+      //printf("i'm alive?");
     }
 
-    if (compare_double(node->right->value, 0) == double_equal)
-      node->type  = node->left->type; 
-      node->value = node->left->value;
-      node->right = node->left->right;
-      node->left  = node->left->left; 
-      dtor_node(node->left);
-      dtor_node(node->right);;
+    if (node->right->type == NUM && compare_double(node->right->value, 0) == double_equal)
+      replace_node(node, node->left);
     break;
 
     case SUB:
-    if (compare_double(node->left->value, 0) == double_equal)
+    if (node->left->type == NUM && compare_double(node->left->value, 0) == double_equal)
     {
       node->value = MUL;
       node->left->value = -1;
     }
 
-    if (compare_double(node->right->value, 0) == double_equal)
-      node->type  = node->left->type; 
-      node->value = node->left->value;
-      node->right = node->left->right;
-      node->left  = node->left->left; 
-      dtor_node(node->left);
-      dtor_node(node->right);;
+    if (node->right->type == NUM && compare_double(node->right->value, 0) == double_equal)
+    {
+      replace_node(node, node->left);
+    }
     break;
 
     case MUL:
-    if ((compare_double(node->left->value, 0) == double_equal) || (compare_double(node->right->value, 0) == double_equal))
+    if ((node->left->type == NUM && (compare_double(node->left->value, 0) == double_equal)) || (node->right->type == NUM && (compare_double(node->right->value, 0) == double_equal)))
     {
       node->type  = NUM; 
       node->value = 0;
-      tree_dtor(node->right);
-      tree_dtor(node->left);
+      tree_dtor(node->left);  node->left = NULL;
+      tree_dtor(node->right); node->right = NULL;
+      return cant_be_simplified;
     }
 
-    // if ((compare_double(node->left->value, 0) == double_equal) || (compare_double(node->right->value, 0) == double_equal))
-    // {
-    //   node->type  = NUM; 
-    //   node->value = 0;
-    //   tree_dtor(node->right);
-    //   tree_dtor(node->left);
-    // }
-
-    case DIV:
-    if (node->left->value == 0)
-      return _NUM(0);
-
-    if (node->right->value == 0)
-      return _NUM(inf);
-
-    if (node->right->value == 1)
-      return get_copy_of_node(node->left);
-
-    //case 
+    if (node->left->type == NUM && compare_double(node->left->value, 1) == double_equal)
+    {
+      replace_node(node, node->right);
+      return cant_be_simplified;
+    }
+    
+    if (node->right->type == NUM && compare_double(node->right->value, 1) == double_equal)
+    {
+      replace_node(node, node->left);
+      return cant_be_simplified;
+    }
 
     break;
+
+    case DIV:
+    if (node->left->type == NUM && compare_double(node->left->value, 0) == double_equal)
+    {
+      node->type  = NUM; 
+      node->value = 0;
+      tree_dtor(node->left);  node->left = NULL;
+      tree_dtor(node->right); node->right = NULL;
+      return cant_be_simplified;
+    } 
+    break;
+
+    case POW:
+    if (node->left->type == NUM && compare_double(node->left->value, 0) == double_equal)
+    {
+      node->type  = NUM; 
+      node->value = 0;
+      tree_dtor(node->left); node->left = NULL;
+      tree_dtor(node->right); node->right = NULL;
+
+      return cant_be_simplified;
+    } 
+
+    if (node->left->type == NUM && compare_double(node->left->value, 1) == double_equal)
+    {
+      node->type  = NUM; 
+      node->value = 1;
+      tree_dtor(node->left);  node->left = NULL;
+      tree_dtor(node->right); node->right = NULL;
+      return cant_be_simplified;
+    } 
+
+    if (node->right->type == NUM && compare_double(node->right->value, 0) == double_equal)
+    {
+      node->type  = NUM; 
+      node->value = 1;
+      tree_dtor(node->left);  node->left = NULL;
+      tree_dtor(node->right); node->right = NULL;
+  
+      return cant_be_simplified;
+    } 
+
+    if (node->right->type == NUM && compare_double(node->right->value, 1) == double_equal)
+    {
+      replace_node(node, node->left);
+      return cant_be_simplified;
+    } 
+
+    break;
+
+    case SIN:
+    case COS:
+    case LN:
+    case LOG:
+    case SQRT:
+    case VAR:
+    case NUM:
+    break;
+
+    default:
+    printf(RED("SYNTEX_ERROR - %c\n"), (char)node->value);
+    break;
+    
   }
 
     //case VAR: return variable;    break;
-
-  return 0;
+  return cant_be_simplified;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
