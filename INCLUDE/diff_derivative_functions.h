@@ -7,12 +7,6 @@
 const long double epsilon_for_comparing_doubles = 0.000001;
 const int poison_calculation = -666;
 
-enum compare_tree_status
-{
-    different_trees = 0,
-    equal_trees = 1,
-};
-
 enum simplify_status
 {
     cant_be_simplified = 0,
@@ -32,8 +26,6 @@ enum double_compare_status
     double_equal    = 0,
     double_smaller = -1,
 };
-
-compare_tree_status compare_tree(diff_node_t* root_1, diff_node_t* root_2);
 
 void simplify_function(diff_node_t* node, dvalue_t variable);
 void make_easy_reduction(diff_node_t* node);
