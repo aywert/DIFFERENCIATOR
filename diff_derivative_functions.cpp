@@ -9,18 +9,21 @@ int counter_of_changes = 0;
 branch_status is_var_on_the_branch(diff_node_t* node)
 {
   if (node == NULL)
+  {
+    printf("fuckfuckkfuck");
     return var_not_on_the_branch;
+  }
 
-  if(node->type == VAR)
+  else if(node->type == VAR)
     return var_on_the_branch;
 
-  if ((node->right != NULL) && node->left == NULL)
+  else if ((node->right != NULL) && node->left == NULL)
     return is_var_on_the_branch(node->right);
     
-  if ((node->left != NULL)  && node->right == NULL)
+  else if ((node->left != NULL)  && node->right == NULL)
     return is_var_on_the_branch(node->left);
       
-  if ((node->left != NULL)  && (node->right != NULL))
+  else if ((node->left != NULL)  && (node->right != NULL))
   {
     if (((node->left->type != VAR) && (node->right->type != VAR)) && (is_var_on_the_branch(node->left) == var_not_on_the_branch) && (is_var_on_the_branch(node->right) == var_not_on_the_branch))
       return var_not_on_the_branch;
@@ -51,15 +54,24 @@ void simplify_function(diff_node_t* node, dvalue_t variable)
     counter_of_changes = 0;
     count_countable_nodes(node, variable);
     make_easy_reduction(node);
-
+    printf("counter_of_changes = %d\n", counter_of_changes);
     if (counter_of_changes == 0)
       break;
   }
+  diff_node_t* node_1 = ctor_node(OP, (dvalue_t)777, node, NULL);
+  //count_countable_nodes(node_1, variable);
+  make_easy_reduction(node_1);
+  dtor_node(node_1);
 }
 
 void make_easy_reduction(diff_node_t* node)
 {
-
+  // if (node->type == OP)
+  // {
+  //   make_easy_reduction(node);
+  //   if (node->left != NULL && node->left->type == OP && simple_fire(node->left) == can_be_simplified) counter_of_changes++;
+  //   if (node->right != NULL && node->right->type == OP && simple_fire(node->right) == can_be_simplified) counter_of_changes++;
+  // }
   if ((node->left != NULL) && (int)node->left->type == OP) 
   {
     if (simple_fire(node->left) == can_be_simplified) 
@@ -81,36 +93,25 @@ void make_easy_reduction(diff_node_t* node)
 
 void count_countable_nodes(diff_node_t* node, dvalue_t variable)
 { 
-  if (is_var_on_the_branch(node->left) == var_not_on_the_branch)
+  if (node == NULL)
+    return;
+  printf("it is me\n");
+  if (is_var_on_the_branch(node) == var_not_on_the_branch)
   {
-    if ((node->left != NULL) && (int)node->left->type == OP)
+    if (node->type == OP)
     {
       counter_of_changes++;
-      dvalue_t result = calculate_value(node->left, variable);
-      tree_dtor(node->left);
-      node->left = _NUM(result);
+      dvalue_t result = calculate_value(node, variable);
+      node->type = NUM;
+      node->value = result;
+      tree_dtor(node->left); node->left = NULL;
+      tree_dtor(node->right);node->right = NULL;
     }
   }
-
   else
   {
-    count_countable_nodes(node->left, variable);
-  }
-
-  if (is_var_on_the_branch(node->right) == var_not_on_the_branch)
-  {
-    if ((node->right != NULL) && (int)node->right->type == OP)
-    {
-      counter_of_changes++;
-      dvalue_t result = calculate_value(node->right, variable);
-      tree_dtor(node->right);
-      node->right = _NUM(result);
-    }
-  }
-
-  else
-  {
-    count_countable_nodes(node->right, variable);
+    if (node->left) count_countable_nodes(node->left, variable);
+    if (node->right) count_countable_nodes(node->right, variable);
   }
 }
 
@@ -131,8 +132,6 @@ void replace_node(diff_node_t* node_to_replace, diff_node_t* new_node)
 
 simplify_status simple_fire(diff_node_t* node)
 {
-  //int error_counter = 0;
-  //printf("why\n");
   if (node == NULL)
     return TYPE_ERROR_SMPLF;
   
@@ -169,6 +168,7 @@ simplify_status simple_fire(diff_node_t* node)
       replace_node(node, node->left);
       return can_be_simplified;
     }
+
     break;
 
     case MUL:
@@ -189,6 +189,7 @@ simplify_status simple_fire(diff_node_t* node)
     
     if (node->right->type == NUM && compare_double(node->right->value, 1) == double_equal)
     {
+      printf(GREEN("something\n"));
       replace_node(node, node->left);
       return can_be_simplified;
     }
@@ -280,6 +281,8 @@ dvalue_t calculate_value(diff_node_t* node, dvalue_t variable)
     case OP:
     printf("(int)node->value = %d\n", (int)node->value);
     printf("(int)node->value = %c\n", (char)node->value);
+    printf("(int)node->left->value = %d\n", (int)node->left->value);
+    printf("(int)node->left->value = %d\n", (int)node->right->value);
 
     switch((int)node->value)
     {

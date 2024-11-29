@@ -111,7 +111,47 @@ diff_dump_status latex_dump(diff_node_t* node, const char* file_name)
     return diff_dump_failure;
   }
 
-  fprintf(file, "\\documentclass{article}\n\\begin{document}\n");
+fprintf(file, "\\documentclass{article}\n");
+
+fprintf(file, "\\usepackage{multirow}\n"
+"\\usepackage{wrapfig}\n"
+"\\usepackage[T2A]{fontenc}\n"
+"\\usepackage[utf8]{inputenc}\n"
+"\\usepackage[english,russian]{babel}\n"
+"\\usepackage{graphicx}\n"
+"\\usepackage{todonotes}\n"
+
+"\\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}\n" 
+"\\usepackage{hyperref}\n"
+"\\usepackage{pgfplots}\n"
+"\\pgfplotsset{compat=1.9}\n");
+  
+ // \\begin{titlepage}\n 
+  fprintf(file, "\\begin{document}\n\\begin{center}\n"
+"{\\large МОСКОВСКИЙ ФИЗИКО-ТЕХНИЧЕСКИЙ ИНСТИТУТ (НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ УНИВЕРСИТЕТ)}\n"
+"\\end{center}\n"
+"\\begin{center}\n"
+"{\\largeФизтех-школа Радиотехники и компьютерных технологий}\n"
+"\\end{center}\n"
+"\\vspace{3.5cm}\n"
+"\\vspace{0.1cm}\n"
+"{\\huge\n"
+"\\begin{center}\n"
+"{\\bf Лабораторная работа 3.3.3}\\\n"
+"{Дифференцирование геометричеких фигур}\n"
+"\\end{center}\n"
+"}\n"
+"\\vspace{5cm}\n"
+"{\\LARGE Авторы:\\\\ Мовсесян Михаил \\\\\n"
+"\\vspace{0.2cm}\n"
+"Б01-403}\n"
+"\\end{flushright}\n"
+"\\vspace{1.5cm}\n"
+"\\begin{center}\n"
+"Долгопрудный 2024\n"
+"\\end{center}\n"
+"\\end{titlepage}");
+
   fprintf(file, "$");
   diff_dump_status status = generate_latex_dump(node, file);
   fprintf(file, "$\n");

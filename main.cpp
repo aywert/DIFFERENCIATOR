@@ -8,7 +8,8 @@ int main(void)
     diff_node_t* node = diff_reader(file_for_reading);
     // diff_node_t* node_1 = diff_reader(file_for_reading);
     // diff_node_t* node_2 = diff_reader(file_for_reading);
-    print_node_graph(node, file_graph_input);
+    // latex_dump(node, file_for_LATEX);
+    // print_node_graph(node, file_graph_input);
     // node_1->left->value = 9999;
     // //  node_dump(node);
     // //  printf("\n");
@@ -22,11 +23,15 @@ int main(void)
     // print_node_graph(node, file_graph_input);
     // latex_dump(node, file_for_LATEX);
     diff_node_t* diffed_node = {};
-    diffed_node = get_derivative_of_node(node);
+    // diff_node_t* diffed_node_1 = get_derivative_of_node(node);
+    diffed_node = get_derivative_of_node(get_derivative_of_node(node));
 
     dvalue_t variable = 3;
     // print_node_graph(diffed_node, file_graph_input);
+    //count_countable_nodes(diffed_node, variable);
     simplify_function(diffed_node, variable);
+    // print_node_graph(node, file_graph_input);
+    // latex_dump(node, file_for_LATEX);
     // count_countable_nodes(diffed_node, variable);
     // make_easy_reduction(diffed_node);
 
