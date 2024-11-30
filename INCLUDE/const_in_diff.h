@@ -23,7 +23,6 @@ enum math_comands
     SQRT = 251,
     SIN  = 253,
     COS  = 254,
-    
 };
 
 enum types_for_diff

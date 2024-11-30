@@ -110,7 +110,7 @@ void count_countable_nodes(diff_node_t* node, dvalue_t variable)
   }
   else
   {
-    if (node->left) count_countable_nodes(node->left, variable);
+    if (node->left)  count_countable_nodes(node->left, variable);
     if (node->right) count_countable_nodes(node->right, variable);
   }
 }
@@ -270,6 +270,7 @@ simplify_status simple_fire(diff_node_t* node)
 
 dvalue_t calculate_value(diff_node_t* node, dvalue_t variable)
 {
+  printf("i dead here\n");
   if (node == NULL)
     return poison_calculation;
   switch(node->type)
@@ -279,10 +280,10 @@ dvalue_t calculate_value(diff_node_t* node, dvalue_t variable)
     case VAR: return variable;    break;
 
     case OP:
-    printf("(int)node->value = %d\n", (int)node->value);
-    printf("(int)node->value = %c\n", (char)node->value);
-    printf("(int)node->left->value = %d\n", (int)node->left->value);
-    printf("(int)node->left->value = %d\n", (int)node->right->value);
+    // printf("(int)node->value = %d\n", (int)node->value);
+    // printf("(int)node->value = %c\n", (char)node->value);
+    // printf("(int)node->left->value = %d\n", (int)node->left->value);
+    // printf("(int)node->left->value = %d\n", (int)node->right->value);
 
     switch((int)node->value)
     {
@@ -429,4 +430,63 @@ diff_node_t* get_derivative_of_node(diff_node_t* node)
   }
 
   return NULL;
+}
+
+void get_analitics(void)
+{
+  printf("Let me see what we've got here\n");
+  diff_node_t* node = diff_reader(file_for_reading);
+  printf("...\n");
+  printf("Interesting\n");
+  printf("Please enter point around which you wnat we to analyse your function more closely: ");
+  dvalue_t variable = 0;
+
+  while (true)
+  {
+    if (scanf("%lg", &variable) == 1)
+      break;
+    while(getchar()!= '\n');
+    printf("Sorry, could recognize input information\n Please Try again\n");
+  }
+
+  printf(GREEN("Successfully scanned\n"));
+  printf("Please enter to which extent you want we to analize your function meaning ");
+
+  int degree = 0;
+  while (true)
+  {
+    if (scanf("%d", &degree) == 1)
+      break;
+    while(getchar()!= '\n');
+    printf("Sorry, could recognize input information\n Please Try again\n");
+  }
+
+  printf(GREEN("Successfully scanned\n"));
+
+  dvalue_t* derivative_value_buffer = (dvalue_t*)calloc(degree + 2, sizeof(dvalue_t));
+  assert(derivative_value_buffer);
+
+  diff_node_t* function = node; 
+  diff_node_t* diffed_function = get_derivative_of_node(node);
+  simplify_function(diffed_function, variable);
+  // print_node_graph(get_derivative_of_node(get_derivative_of_node(node)), file_graph_input);
+  // get_derivative_of_node(get_derivative_of_node(node));
+  for (int index = 0; index <= degree; index++)
+  {
+    derivative_value_buffer[index] = calculate_value(node, variable);
+    diff_node_t* tempor_ptr = get_derivative_of_node(node);
+    simplify_function(tempor_ptr, variable);
+    if (node != function && node != diffed_function)
+      tree_dtor(node);
+    node = tempor_ptr;
+  }
+
+  for (int i = 0; i <= degree; i++)
+  {
+    printf("Diffed_%d = %lg\n", i, derivative_value_buffer[i]);
+  }
+
+  analitical_latex_dump(function, diffed_function, derivative_value_buffer, degree, variable, "log_folder_differenciator\\LATEX\\LATEX_dump.tex");
+
+  free(derivative_value_buffer); derivative_value_buffer = NULL;
 }

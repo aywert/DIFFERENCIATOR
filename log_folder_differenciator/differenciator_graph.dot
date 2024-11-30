@@ -1,11 +1,29 @@
 digraph list
 {
 rankdir=HR;
-	9398488 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = * | left = 008F68B0| right = 008F6A30}"];
-	9398488 -> 9398456 [color="blue"]
-	9398456 [shape = Mrecord; style = filled; fillcolor="#4682b4"; color = "#000000"; fontcolor = "#000000"; label = "{ NUM | value = -1 | left = 00000000| right = 00000000}"];
-	9398488 -> 9398840 [color="blue"]
-	9398840 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = þ | left = 00000000| right = 008F6990}"];
-	9398840 -> 9398680 [color="blue"]
-	9398680 [shape = Mrecord; style = filled; fillcolor="#ff7da3"; color = "#000000"; fontcolor = "#000000"; label = "{ VAR | value = x | left = 00000000| right = 00000000}"];
+	13068752 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = + | left = 00C76B68| right = 00C716D8}"];
+	13068752 -> 13069168 [color="blue"]
+	13069168 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = * | left = 00C76B88| right = 00C716F8}"];
+	13069168 -> 13069200 [color="blue"]
+	13069200 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = * | left = 00C76968| right = 00C71718}"];
+	13069200 -> 13068656 [color="blue"]
+	13068656 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = * | left = 00C76D28| right = 00C76C68}"];
+	13068656 -> 13069616 [color="blue"]
+	13069616 [shape = Mrecord; style = filled; fillcolor="#4682b4"; color = "#000000"; fontcolor = "#000000"; label = "{ NUM | value = -1 | left = 00000000| right = 00000000}"];
+	13068656 -> 13069424 [color="blue"]
+	13069424 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = ý | left = 00000000| right = 00C704B0}"];
+	13069424 -> 13042872 [color="blue"]
+	13042872 [shape = Mrecord; style = filled; fillcolor="#ff7da3"; color = "#000000"; fontcolor = "#000000"; label = "{ VAR | value = x | left = 00000000| right = 00000000}"];
+	13069200 -> 13047584 [color="blue"]
+	13047584 [shape = Mrecord; style = filled; fillcolor="#4682b4"; color = "#000000"; fontcolor = "#000000"; label = "{ NUM | value = 1 | left = 00000000| right = 00000000}"];
+	13069168 -> 13047552 [color="blue"]
+	13047552 [shape = Mrecord; style = filled; fillcolor="#4682b4"; color = "#000000"; fontcolor = "#000000"; label = "{ NUM | value = 1 | left = 00000000| right = 00000000}"];
+	13068752 -> 13047520 [color="blue"]
+	13047520 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = * | left = 00C716B8| right = 00C71678}"];
+	13047520 -> 13047488 [color="blue"]
+	13047488 [shape = Mrecord; style = filled; fillcolor="#ffc765"; color = "#000000"; fontcolor = "#000000"; label = "{ OP | value = þ | left = 00000000| right = 00C71698}"];
+	13047488 -> 13047456 [color="blue"]
+	13047456 [shape = Mrecord; style = filled; fillcolor="#ff7da3"; color = "#000000"; fontcolor = "#000000"; label = "{ VAR | value = x | left = 00000000| right = 00000000}"];
+	13047520 -> 13047424 [color="blue"]
+	13047424 [shape = Mrecord; style = filled; fillcolor="#4682b4"; color = "#000000"; fontcolor = "#000000"; label = "{ NUM | value = 0 | left = 00000000| right = 00000000}"];
 	}

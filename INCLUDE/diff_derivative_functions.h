@@ -27,6 +27,8 @@ enum double_compare_status
     double_smaller = -1,
 };
 
+void get_analitics(void);
+
 void simplify_function(diff_node_t* node, dvalue_t variable);
 void make_easy_reduction(diff_node_t* node);
 void count_countable_nodes(diff_node_t* node, dvalue_t variable);
