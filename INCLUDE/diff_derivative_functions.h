@@ -29,17 +29,17 @@ enum double_compare_status
 
 void get_analitics(void);
 
-void simplify_function(diff_node_t* node, dvalue_t variable);
+void simplify_function(diff_node_t* node, const dvalue_t variable);
 void make_easy_reduction(diff_node_t* node);
-void count_countable_nodes(diff_node_t* node, dvalue_t variable);
+void count_countable_nodes(diff_node_t* node, const dvalue_t variable);
 void replace_node(diff_node_t* node_to_replace, diff_node_t* new_node);
 simplify_status simple_fire(diff_node_t* node);
 
-branch_status is_var_on_the_branch(diff_node_t* node);
-double_compare_status compare_double(double a, double b);
+branch_status is_var_on_the_branch(const diff_node_t* node);
+double_compare_status compare_double(const double a, const double b);
 
-dvalue_t calculate_value(diff_node_t* node, dvalue_t variable);
-diff_node_t* get_derivative_of_node(diff_node_t* node);
-diff_node_t* get_copy_of_node(diff_node_t* node);
+dvalue_t calculate_value(const diff_node_t* node, const dvalue_t variable);
+diff_node_t* get_derivative_of_node(const diff_node_t* node);
+diff_node_t* get_copy_of_node(const diff_node_t* node);
 
 #endif

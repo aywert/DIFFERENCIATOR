@@ -2,17 +2,96 @@
 #include"INCLUDE\\differenciator_DSL.h"
 #include"INCLUDE\\diff_dump_functions.h"
 
+static void get_variable_for_tailor(dvalue_t* variable);
+static void get_degree_for_tailor(int* degree);
+
 
 int counter_of_changes = 0;
-//TODO debug this thing
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-branch_status is_var_on_the_branch(diff_node_t* node)
+
+void get_analitics(void)
+{
+  printf("Let me see what we've got here\n");
+  diff_node_t* node = diff_reader(file_for_reading);
+  printf("...\n");
+  printf("Interesting\n");
+  printf("Please enter point around which you wnat we to analyse your function more closely: ");
+  
+  dvalue_t variable = 0;
+  get_variable_for_tailor(&variable);
+  printf("Please enter to which extent you want we to analize your function: ");
+  int degree = 0;
+  get_degree_for_tailor(&degree);
+
+  dvalue_t* derivative_value_buffer = (dvalue_t*)calloc(degree + 2, sizeof(dvalue_t));
+  assert(derivative_value_buffer);
+
+  diff_node_t* init_function = node;
+  simplify_function(node, variable); // simplification in case i am given bad input function
+
+  diff_node_t* diffed_function = get_derivative_of_node(node);
+  simplify_function(diffed_function, variable);
+  derivative_value_buffer[0] = calculate_value(init_function, variable);
+  derivative_value_buffer[1] = calculate_value(diffed_function, variable);
+  node = diffed_function;
+  
+  if (degree >= 2)
+  {
+    for (int index = 2; index <= degree; index++)
+    {
+      diff_node_t* tempor_ptr = get_derivative_of_node(node);
+      simplify_function(tempor_ptr, variable);
+      derivative_value_buffer[index] = calculate_value(tempor_ptr, variable);
+      if (node != diffed_function)
+        tree_dtor(node);
+      node = tempor_ptr;
+    }
+
+    tree_dtor(node);
+  }
+
+  for (int i = 0; i <= degree; i++)
+  {
+    printf(BLUE("Diffed_%d") " = %lg\n", i, derivative_value_buffer[i]);
+  }
+
+  analitical_latex_dump(init_function, diffed_function, derivative_value_buffer, degree, variable, "log_folder_differenciator\\LATEX\\LATEX_dump.tex");
+
+  tree_dtor(init_function); init_function = NULL;
+  tree_dtor(diffed_function); diffed_function = NULL;
+
+  free(derivative_value_buffer); derivative_value_buffer = NULL;
+}
+
+static void get_variable_for_tailor(dvalue_t* variable)
+{
+   while (true)
+  {
+    if (scanf("%lg", variable) == 1)
+      break;
+    while(getchar()!= '\n');
+    printf("Sorry, could recognize input information\n Please Try again\n");
+  }
+
+  printf(GREEN("Successfully scanned\n"));
+}
+
+static void get_degree_for_tailor(int* degree)
+{
+  while (true)
+  {
+    if (scanf("%d", degree) == 1)
+      break;
+    while(getchar()!= '\n');
+    printf(YELLOW("Sorry, could recognize input information\n Please Try again\n"));
+  }
+
+  printf(GREEN("Successfully scanned\n"));
+}
+
+branch_status is_var_on_the_branch(const diff_node_t* node)
 {
   if (node == NULL)
-  {
-    printf("fuckfuckkfuck");
     return var_not_on_the_branch;
-  }
 
   else if(node->type == VAR)
     return var_on_the_branch;
@@ -25,7 +104,10 @@ branch_status is_var_on_the_branch(diff_node_t* node)
       
   else if ((node->left != NULL)  && (node->right != NULL))
   {
-    if (((node->left->type != VAR) && (node->right->type != VAR)) && (is_var_on_the_branch(node->left) == var_not_on_the_branch) && (is_var_on_the_branch(node->right) == var_not_on_the_branch))
+    if ((node->left->type  != VAR)  && 
+        (node->right->type != VAR) && 
+        (is_var_on_the_branch(node->left)  == var_not_on_the_branch) && 
+        (is_var_on_the_branch(node->right) == var_not_on_the_branch))
       return var_not_on_the_branch;
     else  
       return var_on_the_branch;
@@ -35,7 +117,7 @@ branch_status is_var_on_the_branch(diff_node_t* node)
     return var_not_on_the_branch;
 }
 
-double_compare_status compare_double(double a, double b)
+double_compare_status compare_double(const double a, const double b)
 {
   if (fabs(a-b) < epsilon_for_comparing_doubles)
     return double_equal;
@@ -47,7 +129,7 @@ double_compare_status compare_double(double a, double b)
     return double_smaller;
 }
 
-void simplify_function(diff_node_t* node, dvalue_t variable)
+void simplify_function(diff_node_t* node, const dvalue_t variable)
 {
   while(true)
   {
@@ -58,7 +140,7 @@ void simplify_function(diff_node_t* node, dvalue_t variable)
     if (counter_of_changes == 0)
       break;
   }
-  diff_node_t* node_1 = ctor_node(OP, (dvalue_t)777, node, NULL);
+  diff_node_t* node_1 = ctor_node(OP, (dvalue_t)869, node, NULL);
   //count_countable_nodes(node_1, variable);
   make_easy_reduction(node_1);
   dtor_node(node_1);
@@ -72,6 +154,11 @@ void make_easy_reduction(diff_node_t* node)
   //   if (node->left != NULL && node->left->type == OP && simple_fire(node->left) == can_be_simplified) counter_of_changes++;
   //   if (node->right != NULL && node->right->type == OP && simple_fire(node->right) == can_be_simplified) counter_of_changes++;
   // }
+  if (node == NULL)
+    return;
+
+  // simple_fire (node);
+
   if ((node->left != NULL) && (int)node->left->type == OP) 
   {
     if (simple_fire(node->left) == can_be_simplified) 
@@ -91,11 +178,11 @@ void make_easy_reduction(diff_node_t* node)
   }
 }
 
-void count_countable_nodes(diff_node_t* node, dvalue_t variable)
+void count_countable_nodes(diff_node_t* node, const dvalue_t variable)
 { 
   if (node == NULL)
     return;
-  printf("it is me\n");
+  
   if (is_var_on_the_branch(node) == var_not_on_the_branch)
   {
     if (node->type == OP)
@@ -172,7 +259,8 @@ simplify_status simple_fire(diff_node_t* node)
     break;
 
     case MUL:
-    if ((node->left->type == NUM && (compare_double(node->left->value, 0) == double_equal)) || (node->right->type == NUM && (compare_double(node->right->value, 0) == double_equal)))
+    if ((node->left->type == NUM  && (compare_double(node->left->value, 0) == double_equal)) || 
+        (node->right->type == NUM && (compare_double(node->right->value, 0) == double_equal)))
     {
       node->type  = NUM; 
       node->value = 0;
@@ -253,12 +341,10 @@ simplify_status simple_fire(diff_node_t* node)
     case VAR:
     case NUM:
     return cant_be_simplified;
-    break;
 
     default:
     printf(RED("SYNTEX_ERROR - %c\n"), (char)node->value);
     return cant_be_simplified;
-    break;
     
   }
 
@@ -268,16 +354,16 @@ simplify_status simple_fire(diff_node_t* node)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-dvalue_t calculate_value(diff_node_t* node, dvalue_t variable)
+dvalue_t calculate_value(const diff_node_t* node, const dvalue_t variable)
 {
-  printf("i dead here\n");
   if (node == NULL)
     return poison_calculation;
+
   switch(node->type)
   {
 
-    case NUM: return node->value; break;
-    case VAR: return variable;    break;
+    case NUM: return node->value;
+    case VAR: return variable;    
 
     case OP:
     // printf("(int)node->value = %d\n", (int)node->value);
@@ -289,49 +375,38 @@ dvalue_t calculate_value(diff_node_t* node, dvalue_t variable)
     {
       case DIV:
       return calculate_value(node->left, variable) / calculate_value(node->right, variable);
-      break;
 
       case MUL:
       return calculate_value(node->left, variable) * calculate_value(node->right, variable);
-      break;
 
       case ADD:
       return calculate_value(node->left, variable) + calculate_value(node->right, variable);
-      break;
 
       case SUB:
       return calculate_value(node->left, variable) - calculate_value(node->right, variable);
-      break;
 
       case SIN:
       return sin(calculate_value(node->right, variable));
-      break;
 
       case COS:
       return cos(calculate_value(node->right, variable));
-      break;
 
       case LN:
       printf("ln counted %lg", log((calculate_value(node->right, variable))));
       return log((calculate_value(node->right, variable)));
-      break;
 
       case POW:
       return pow(calculate_value(node->left, variable), calculate_value(node->right, variable));
-      break;
 
       case LOG:
       return log(calculate_value(node->right, variable))/log(calculate_value(node->left, variable));
-      break;
 
       case SQRT:
       return sqrt(calculate_value(node->right, variable));
-      break;
 
       default:
       printf(RED("COMAND_SNTX_ERROR\n"));
       return poison_calculation;
-      break;
     }
 
     break;
@@ -348,14 +423,14 @@ dvalue_t calculate_value(diff_node_t* node, dvalue_t variable)
 // {
 
 // }
-diff_node_t* get_copy_of_node(diff_node_t* node)
+diff_node_t* get_copy_of_node(const diff_node_t* node)
 {
   if (node == NULL)
       return NULL;
   return ctor_node(node->type, node->value, get_copy_of_node(node->left), get_copy_of_node(node->right));
 }
 
-diff_node_t* get_derivative_of_node(diff_node_t* node)
+diff_node_t* get_derivative_of_node(const diff_node_t* node)
 {
   assert(node);
 
@@ -365,11 +440,11 @@ diff_node_t* get_derivative_of_node(diff_node_t* node)
   switch(node->type)
   {
     case VAR:
-    return ctor_node(NUM, 1, NULL, NULL);
+    return _NUM(1);
     break;
 
     case NUM:
-    return ctor_node(NUM, 0, NULL, NULL);
+    return _NUM(0);
     break;
 
     case OP:
@@ -378,45 +453,35 @@ diff_node_t* get_derivative_of_node(diff_node_t* node)
       case DIV:
       return _DIV(_SUB(_MUL(get_derivative_of_node(node->left), get_copy_of_node(node->right)), _MUL(get_copy_of_node(node->left), get_derivative_of_node(node->right))), 
                   _MUL(get_copy_of_node(node->right), get_copy_of_node(node->right))); 
-      break;
       
       case MUL:
       return _ADD(_MUL(get_derivative_of_node(node->left), get_copy_of_node(node->right)), _MUL(get_copy_of_node(node->left), get_derivative_of_node(node->right)));
-      break;
       
       case ADD:
       return _ADD(get_derivative_of_node(node->left), get_derivative_of_node(node->right));  
-      break;
 
       case SUB:
       return _SUB(get_derivative_of_node(node->left), get_derivative_of_node(node->right));
-      break;
 
       case SIN:
       return _MUL(_COS(get_copy_of_node(node)->right), get_derivative_of_node(node->right));
-      break;
 
       case COS:
       return _MUL(_MUL(_NUM(-1), _SIN(get_copy_of_node(node)->right)), get_derivative_of_node(node->right));
-      break;
 
       case SQRT:
       return _MUL(_DIV(_NUM(1), _MUL(_NUM(2), get_copy_of_node(node))), get_derivative_of_node(node->right));
-      break;
 
       case LN:
       return _MUL(_DIV(_NUM(1), get_copy_of_node(node->right)), get_derivative_of_node(node->right));
-      break;
 
       case LOG:
       return _MUL(_DIV(_NUM(1), _MUL(_LN(get_copy_of_node(node->left)), get_copy_of_node(node->right))), get_derivative_of_node(node->right));
-      break;
 
       case POW:
         //printf("!!!!!!%d!!!!\n", get_copy_of_node(node)->left->type);
         //printf("11!!!!!!%d!!!!\n", get_copy_of_node(node)->left->value);
       return  _MUL(get_copy_of_node(node), get_derivative_of_node(_MUL(_LN(get_copy_of_node(node->left)), get_copy_of_node(node->right))));
-      break;
 
       default:
         printf(RED("FUNCTION_RECOGNITION_ERROR\n"));
@@ -427,66 +492,9 @@ diff_node_t* get_derivative_of_node(diff_node_t* node)
 
     default:
     printf(RED("TYPE_FORMATION_ERROR\n"));
+    break;
   }
 
   return NULL;
 }
 
-void get_analitics(void)
-{
-  printf("Let me see what we've got here\n");
-  diff_node_t* node = diff_reader(file_for_reading);
-  printf("...\n");
-  printf("Interesting\n");
-  printf("Please enter point around which you wnat we to analyse your function more closely: ");
-  dvalue_t variable = 0;
-
-  while (true)
-  {
-    if (scanf("%lg", &variable) == 1)
-      break;
-    while(getchar()!= '\n');
-    printf("Sorry, could recognize input information\n Please Try again\n");
-  }
-
-  printf(GREEN("Successfully scanned\n"));
-  printf("Please enter to which extent you want we to analize your function meaning ");
-
-  int degree = 0;
-  while (true)
-  {
-    if (scanf("%d", &degree) == 1)
-      break;
-    while(getchar()!= '\n');
-    printf("Sorry, could recognize input information\n Please Try again\n");
-  }
-
-  printf(GREEN("Successfully scanned\n"));
-
-  dvalue_t* derivative_value_buffer = (dvalue_t*)calloc(degree + 2, sizeof(dvalue_t));
-  assert(derivative_value_buffer);
-
-  diff_node_t* function = node; 
-  diff_node_t* diffed_function = get_derivative_of_node(node);
-  simplify_function(diffed_function, variable);
-  // print_node_graph(get_derivative_of_node(get_derivative_of_node(node)), file_graph_input);
-  // get_derivative_of_node(get_derivative_of_node(node));
-  for (int index = 0; index <= degree; index++)
-  {
-    derivative_value_buffer[index] = calculate_value(node, variable);
-    diff_node_t* tempor_ptr = get_derivative_of_node(node);
-    simplify_function(tempor_ptr, variable);
-    if (node != function && node != diffed_function)
-      tree_dtor(node);
-    node = tempor_ptr;
-  }
-
-  for (int i = 0; i <= degree; i++)
-  {
-    printf("Diffed_%d = %lg\n", i, derivative_value_buffer[i]);
-  }
-
-  analitical_latex_dump(function, diffed_function, derivative_value_buffer, degree, variable, "log_folder_differenciator\\LATEX\\LATEX_dump.tex");
-
-  free(derivative_value_buffer); derivative_value_buffer = NULL;
-}

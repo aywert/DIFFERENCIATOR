@@ -2,7 +2,7 @@
 #include"INCLUDE\\diff_reading_functions.h"
 #include"INCLUDE\\assert_for_dump.h"
 
-static diff_dump_status verifier_for_dump_functions(diff_node_t* node, char* file_name)
+static diff_dump_status verifier_for_dump_functions(const diff_node_t* node, const char* file_name)
 {
   if (node == NULL)
   {
@@ -21,7 +21,7 @@ static diff_dump_status verifier_for_dump_functions(diff_node_t* node, char* fil
   return diff_dump_success;
 }
 
-diff_dump_status node_dump(diff_node_t* node)
+diff_dump_status node_dump(const diff_node_t* node)
 {
   DIFF_DUMP_ASSERT(node, 1);
 
@@ -41,7 +41,7 @@ diff_dump_status node_dump(diff_node_t* node)
   return diff_dump_success;
 }
 
-diff_dump_status print_node_graph(diff_node_t* node, const char* file_name)
+diff_dump_status print_node_graph(const diff_node_t* node, const char* file_name)
 {   
   DIFF_DUMP_ASSERT(node, 1);
 
@@ -60,11 +60,11 @@ diff_dump_status print_node_graph(diff_node_t* node, const char* file_name)
 
   fclose(file); file = NULL;
   
-  system("dot -T png " file_graph_input " -o " file_graph_output " -Gcharset=latin1");
+  system("dot -T png log_folder_differenciator//LATEX//LATEX_dump.tex -o log_folder_differenciator//READING_file.txt -Gcharset=latin1");
   return diff_dump_success;
 }
 
-diff_dump_status generate_graph(diff_node_t* node, FILE* file)
+diff_dump_status generate_graph(const diff_node_t* node, FILE* file)
 {
     DIFF_DUMP_ASSERT(node, file);
     
@@ -103,7 +103,7 @@ diff_dump_status generate_graph(diff_node_t* node, FILE* file)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-diff_dump_status analitical_latex_dump(diff_node_t* node, diff_node_t* diffed_node, dvalue_t* derivative_value_buffer, int degree, dvalue_t variable, const char* file_name)
+diff_dump_status analitical_latex_dump(const diff_node_t* node, const diff_node_t* diffed_node, const dvalue_t* derivative_value_buffer, const int degree, const dvalue_t variable, const char* file_name)
 {
   DIFF_DUMP_ASSERT(node, 1);
   FILE* file = fopen(file_name, "w");
@@ -136,7 +136,7 @@ diff_dump_status analitical_latex_dump(diff_node_t* node, diff_node_t* diffed_no
   "{\\large МОСКОВСКИЙ ФИЗИКО-ТЕХНИЧЕСКИЙ ИНСТИТУТ (НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ УНИВЕРСИТЕТ)}\n"
   "\\end{center}\n"
   "\\begin{center}\n"
-  "{\\largeФизтех-школа Радиотехники и компьютерных технологий}\n"
+  "{\\largeФизтех-школа Радиотехники и Компьютерных Технологий}\n"
   "\\end{center}\n"
   "\\vspace{3.5cm}\n"
   "\\vspace{0.1cm}\n"
@@ -147,7 +147,7 @@ diff_dump_status analitical_latex_dump(diff_node_t* node, diff_node_t* diffed_no
   "}\n"
   "\\vspace{5cm}\n"
   "{\\LARGE Авторы:\\\\ Мовсесян Михаил \\\\\n"
-  "\\vspace{0.2cm}\n"
+  "\\newline\n"
   "Б01-403}\n"
   "\\end{flushright}\n"
   "\\vspace{1.5cm}\n"
@@ -158,50 +158,56 @@ diff_dump_status analitical_latex_dump(diff_node_t* node, diff_node_t* diffed_no
 
   fprintf(file, 
   "\\begin{flushleft}\n"
-  "Рассмотрим функцию f(x) = $");
+  "Рассмотрим функцию $f(x) = ");
   diff_dump_status status = generate_latex_dump(node, file);
-  fprintf(file, "$ \\\\ \n");
+  fprintf(file, "$ \\newline \n");
   fprintf(file, 
-  "Ее график имеет вид: \\\\\\\\ \n"
+  "Ее график имеет вид: \\newline  \\newline  \\newline  \\newline\n"
+  "\\end{flushleft}\n"
   /*"\\vspace{1.5см}\n"*/);
+  
   fprintf(file, 
   "\\begin{centering}"
-  "\\begin{tikzpicture}\n"
+  "\\begin{tikzpicture}[h!]\n"
   "\\begin{axis}[\n");
  
   fprintf(file,
   "xlabel = {$x$},\n"
   "ylabel = {$f(x)$},\n"
-  "width  = 450,\n"
-  "height = 450,\n"
-  "minor tick num = 2\n"
+  "width  = 300,\n"
+  "height = 300,\n"
+  "minor tick num = 2,\n"
+  "restrict y to domain = -30:30,\n"
   "]\n"
   "\\addplot[blue, samples = 1000] {");
   generate_latex_function(node, file);
-  fprintf(file,"}; \\\\\\\\ \n"
+  fprintf(file,"};\n"
   //"\\addplot[red, samples = 1000] {sin(deg(-x))};\n"
   "\\end{axis}\n"
   "\\end{tikzpicture}\n");
 
   fprintf(file, 
+  "\\newpage"
   "\\begin{flushleft}\n"
   "Её производная $f^{\\prime}(x) = ");
   status = generate_latex_dump(diffed_node, file);
-  fprintf(file, "$ \\\\ \n");
+  fprintf(file, "$ \\newline\n");
   fprintf(file, 
-  "Ее график имеет вид: \\\\\\\\ \n"
+  "\\text{Ее график имеет вид: }\\newline \\newline  \\newline  \\newline\n"
+  "\\end{flushleft}\n"
   /*"\\vspace{1.5см}\n"*/);
   fprintf(file, 
   "\\begin{centering}"
-  "\\begin{tikzpicture}\n"
+  "\\begin{tikzpicture}[h!]\n"
   "\\begin{axis}[\n");
  
   fprintf(file,
   "xlabel = {$x$},\n"
   "ylabel = {$f(x)$},\n"
-  "width  = 450,\n"
-  "height = 450,\n"
-  "minor tick num = 2\n"
+  "width  = 300,\n"
+  "height = 300,\n"
+  "minor tick num = 2,\n"
+  "restrict y to domain = -30:30,\n"
   "]\n"
   "\\addplot[blue, samples = 1000] {");
   generate_latex_function(diffed_node, file);
@@ -210,18 +216,23 @@ diff_dump_status analitical_latex_dump(diff_node_t* node, diff_node_t* diffed_no
   "\\end{axis}\n"
   "\\end{tikzpicture}\n");
 
-  fprintf(file, "Проведем более детальный анализ функции $f(x)$ в точке x = %lg:", variable);
+  fprintf(file,
+  "\\begin{flushleft}\n"
+  "Проведем более детальный анализ функции $f(x)$ в точке x = %lg:"
+  "\\end{flushleft}\n", variable);
 
   fprintf(file, "$$f(x) = %lg", derivative_value_buffer[0]);
   for (int index = 1; index <= degree; index++)
   {
     fputs(" + ", file);
     fprintf(file, "\\frac{%lg}{%d!} \\cdot (x - %lg)^{%d}", derivative_value_buffer[index], index, variable, index);
+    if (index % 4 == 0)
+      fputs(" $$ \\newline$$", file);
   }
-  fprintf(file, " + o((x - %lg)^{%d})", variable, degree);
+  fprintf(file, " + o((x - %lg)^{%d})\n", variable, degree);
 
   fprintf(file, "\\end{document}\n");
-  tree_dtor(node);
+  
   fclose(file); file = NULL;
 
   if (status == diff_dump_failure)
@@ -233,7 +244,7 @@ diff_dump_status analitical_latex_dump(diff_node_t* node, diff_node_t* diffed_no
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-diff_dump_status latex_dump(diff_node_t* node, const char* file_name)
+diff_dump_status latex_dump(const diff_node_t* node, const char* file_name)
 {
   DIFF_DUMP_ASSERT(node, 1);
   FILE* file = fopen(file_name, "w");
@@ -260,7 +271,7 @@ diff_dump_status latex_dump(diff_node_t* node, const char* file_name)
   return diff_dump_success;
 }
 
-diff_dump_status generate_latex_function(diff_node_t* node, FILE* file)
+diff_dump_status generate_latex_function(const diff_node_t* node, FILE* file)
 {
   DIFF_DUMP_ASSERT(node, file);
   switch(node->type)
@@ -386,7 +397,7 @@ diff_dump_status generate_latex_function(diff_node_t* node, FILE* file)
     return diff_dump_success;
 }
 
-diff_dump_status generate_latex_dump(diff_node_t* node, FILE* file)
+diff_dump_status generate_latex_dump(const diff_node_t* node, FILE* file)
 {
   DIFF_DUMP_ASSERT(node, file);
 
@@ -420,21 +431,21 @@ diff_dump_status generate_latex_dump(diff_node_t* node, FILE* file)
 
       case ADD:
       {
-        fprintf(file, "(");
+        //fprintf(file, "(");
         generate_latex_dump(node->left, file);
-        fprintf(file, ")");
+        //fprintf(file, ")");
         fprintf(file, " + ");
-        fprintf(file, "(");
+        //fprintf(file, "(");
         generate_latex_dump(node->right, file);
-        fprintf(file, ")");
+        //fprintf(file, ")");
         break;
       }
 
       case SUB:
       {
-        fprintf(file, "(");
+        //fprintf(file, "(");
         generate_latex_dump(node->left, file);
-        fprintf(file, ")");
+        //fprintf(file, ")");
         fprintf(file, " - ");
         fprintf(file, "(");
         generate_latex_dump(node->right, file);
@@ -470,27 +481,27 @@ diff_dump_status generate_latex_dump(diff_node_t* node, FILE* file)
       {
         fprintf(file, "(");
         generate_latex_dump(node->left, file);
-        fprintf(file, ")^{(");
+        fprintf(file, ")^{");
         generate_latex_dump(node->right, file);
-        fprintf(file, ")}");
+        fprintf(file, "}");
         break;
       }
 
       case LOG:
       {
-        fprintf(file, "(\\log_{");
+        fprintf(file, "\\log_{");
         generate_latex_dump(node->left, file);
         fprintf(file, "}{(");
         generate_latex_dump(node->right, file);
-        fprintf(file, ")})");
+        fprintf(file, ")}");
         break;
       }
 
       case LN:
       {
-        fprintf(file, "(\\ln{(");
+        fprintf(file, "\\ln{(");
         generate_latex_dump(node->right, file);
-        fprintf(file, ")})");
+        fprintf(file, ")}");
         break;
       }
 

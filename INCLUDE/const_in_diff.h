@@ -4,9 +4,10 @@
 #include"D:\STUDYC\My_labraries\colours.h"
 #include<stdio.h>
 #include<assert.h>
+#include<limits.h>
 
 const int operation_word = 10;
-const int inf = 999999;
+const int inf = INT_MAX;
 
 typedef double dvalue_t;
 

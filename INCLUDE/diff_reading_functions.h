@@ -20,6 +20,6 @@ int tree_dtor(diff_node_t* root);
 int dtor_node(diff_node_t* node_ptr);
 
 diff_node_t* diff_reader(const char* file);
-diff_node_t* diff_reader_recursion(char* buffer);
+diff_node_t* diff_reader_recursion(const char* buffer);
 
 #endif

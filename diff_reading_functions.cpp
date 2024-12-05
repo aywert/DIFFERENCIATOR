@@ -1,14 +1,14 @@
 #include"INCLUDE\\diff_reading_functions.h"
 #include"INCLUDE\\differenciator_DSL.h"
 
-static int partition_for_reading(char* buffer);
+static int partition_for_reading(const char* buffer);
 
 diff_node_t* ctor_node(types_for_diff type, dvalue_t value, diff_node_t* left, diff_node_t* right)
 {
+    printf("type is %d\n", type);
     assert(type);
 
     diff_node_t* node = (diff_node_t*)calloc(sizeof(diff_node_t), 1);
-    
     assert(node);
 
     // switch(type)
@@ -25,6 +25,7 @@ diff_node_t* ctor_node(types_for_diff type, dvalue_t value, diff_node_t* left, d
 
     return node; 
 }
+
 int tree_dtor(diff_node_t* root)
 {
     if (root == NULL)
@@ -73,7 +74,7 @@ diff_node_t* diff_reader(const char* file_name)
   return node;
 }
 
-diff_node_t* diff_reader_recursion(char* buffer)
+diff_node_t* diff_reader_recursion(const char* buffer)
 {
   assert(buffer);
   
@@ -175,7 +176,7 @@ diff_node_t* diff_reader_recursion(char* buffer)
   }
 }
 
-int partition_for_reading(char* buffer)
+int partition_for_reading(const char* buffer)
 {
   assert(buffer);
   int pc = 0;
