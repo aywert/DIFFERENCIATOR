@@ -7,8 +7,9 @@
 #include<math.h>
 #include<sys\stat.h>
 
-#define file_for_LATEX   "log_folder_differenciator//LATEX//LATEX_dump.tex"
-#define file_for_reading "log_folder_differenciator//READING_file.txt"
+//#define file_for_LATEX   "log_folder_differenciator//LATEX//LATEX_dump.tex"
+//#define file_for_reading "log_folder_differenciator//READING_file.txt"
+//const char* file_for_reading = "log_folder_differenciator//READING_file.txt";
 
 enum
 {

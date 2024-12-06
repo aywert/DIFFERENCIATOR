@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.4)  5 DEC 2024 03:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.4)  6 DEC 2024 19:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**./log_folder_differenciator/LATEX/LATEX_dump.tex
-(log_folder_differenciator/LATEX/LATEX_dump.tex
+**./log_folder_differenciator//LATEX//LATEX_dump.tex
+(log_folder_differenciator//LATEX//LATEX_dump.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (D:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -1093,8 +1093,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--31
  []
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:31: LaTeX Error: \begin{document
-} ended by \end{flushright}.
+log_folder_differenciator//LATEX//LATEX_dump.tex:31: LaTeX Error: \begin{docume
+nt} ended by \end{flushright}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -1106,7 +1106,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:31: Extra \endgroup.
+log_folder_differenciator//LATEX//LATEX_dump.tex:31: Extra \endgroup.
 <recently read> \endgroup 
                           
 l.31 \end{flushright}
@@ -1117,8 +1117,8 @@ Things are pretty mixed up, but I think the worst is over.
 
 {C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:36: LaTeX Error: \begin{document
-} ended by \end{titlepage}.
+log_folder_differenciator//LATEX//LATEX_dump.tex:36: LaTeX Error: \begin{docume
+nt} ended by \end{titlepage}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -1130,7 +1130,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:36: Extra \endgroup.
+log_folder_differenciator//LATEX//LATEX_dump.tex:36: Extra \endgroup.
 <recently read> \endgroup 
                           
 l.36 \end{titlepage}
@@ -1148,8 +1148,8 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:40: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:40: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1161,8 +1161,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:40: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:40: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1179,8 +1179,8 @@ Missing character: There is no 1 in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no t in font nullfont!
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1192,8 +1192,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1205,8 +1205,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1218,8 +1218,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1231,8 +1231,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1244,8 +1244,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1257,8 +1257,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1270,8 +1270,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1283,8 +1283,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1296,8 +1296,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1309,8 +1309,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1322,8 +1322,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1335,8 +1335,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1348,8 +1348,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1361,8 +1361,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1374,8 +1374,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1387,8 +1387,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1400,8 +1400,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1413,8 +1413,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1426,8 +1426,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1439,8 +1439,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1452,8 +1452,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1465,8 +1465,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1478,8 +1478,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1491,8 +1491,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1504,8 +1504,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1517,8 +1517,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1530,8 +1530,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1543,8 +1543,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1556,8 +1556,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1569,8 +1569,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1582,8 +1582,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1595,8 +1595,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1608,8 +1608,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1621,8 +1621,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1634,8 +1634,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1647,8 +1647,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1660,8 +1660,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1673,8 +1673,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1686,8 +1686,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1699,8 +1699,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1712,164 +1712,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 \end{axis}
-               
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 \end{axis}
-               
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 \end{axis}
-               
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 \end{axis}
-               
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 \end{axis}
-               
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 \end{axis}
-               
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 \end{axis}
-               
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 \end{axis}
-               
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 \end{axis}
-               
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 \end{axis}
-               
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 \end{axis}
-               
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
-
-See the xcolor package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.50 \end{axis}
-               
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-log_folder_differenciator/LATEX/LATEX_dump.tex:50: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:50: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1888,8 +1732,8 @@ been already used, duplicate ignored
 l.52 \newpage
              \begin{flushleft} [1]
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:56: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:56: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1901,8 +1745,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:56: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:56: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1919,8 +1763,8 @@ Missing character: There is no 1 in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no t in font nullfont!
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1932,8 +1776,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1945,8 +1789,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1958,8 +1802,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1971,8 +1815,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1984,8 +1828,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1997,8 +1841,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2010,8 +1854,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2023,8 +1867,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2036,8 +1880,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2049,8 +1893,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2062,8 +1906,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2075,8 +1919,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2088,8 +1932,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2101,8 +1945,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2114,8 +1958,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2127,8 +1971,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2140,8 +1984,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2153,8 +1997,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2166,8 +2010,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2179,8 +2023,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2192,8 +2036,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2205,8 +2049,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2218,8 +2062,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2231,8 +2075,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2244,8 +2088,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2257,8 +2101,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2270,8 +2114,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2283,8 +2127,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2296,8 +2140,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2309,8 +2153,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2322,8 +2166,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2335,8 +2179,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2348,8 +2192,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2361,8 +2205,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2374,8 +2218,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2387,8 +2231,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2400,8 +2244,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2413,8 +2257,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2426,8 +2270,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2439,8 +2283,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2452,8 +2296,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2465,8 +2309,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2478,8 +2322,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2491,8 +2335,8 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:66: Package xcolor Error: Undefi
-ned color `h'.
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
 
 See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -2503,7 +2347,252 @@ l.66 \end{axis}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:71: Missing $ inserted.
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:66: Package xcolor Error: Unde
+fined color `h'.
+
+See the xcolor package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 \end{axis}
+               
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (14.31609pt too wide) detected at line 70
+\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = 8 + []
+ \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^@ 
+\OT1/cmr/m/n/10 1)[] + [] \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1)[] + [] \OMS/cmsy/m/n/10 ^^A \OT1/cm
+r/m/n/10 (\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1)[] + [] \OM
+S/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^@ \OT1
+/cmr/m/n/10 1)[]
+ []
+
+log_folder_differenciator//LATEX//LATEX_dump.tex:71: Missing $ inserted.
 <inserted text> 
                 $
 l.71 \end{document}
@@ -2511,8 +2600,8 @@ l.71 \end{document}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:71: Display math should end with
- $$.
+log_folder_differenciator//LATEX//LATEX_dump.tex:71: Display math should end wi
+th $$.
 <to be read again> 
                    \tex_par:D 
 l.71 \end{document}
@@ -2522,8 +2611,8 @@ So I shall assume that you typed `$$' both times.
 
 [2]
 
-log_folder_differenciator/LATEX/LATEX_dump.tex:71: LaTeX Error: \begin{centerin
-g} on input line 56 ended by \end{document}.
+log_folder_differenciator//LATEX//LATEX_dump.tex:71: LaTeX Error: \begin{center
+ing} on input line 56 ended by \end{document}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
@@ -2549,28 +2638,31 @@ Package rerunfilecheck Info: File `LATEX_dump.out' has not changed.
 ### semi simple group (level 1) entered at line 40 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 34167 strings out of 474486
- 792303 string characters out of 5744227
- 1939542 words of memory out of 5000000
- 55913 multiletter control sequences out of 15000+600000
+ 34172 strings out of 474486
+ 792443 string characters out of 5744227
+ 1943542 words of memory out of 5000000
+ 55918 multiletter control sequences out of 15000+600000
  563801 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,9n,101p,764b,1968s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,9n,101p,766b,1964s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/
 dpi600\larm1000.pk> <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t
 2a/dpi600\larm1728.pk> <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/l
 h-t2a/dpi600\labx2074.pk> <C:\Users\User\AppData\Local\MiKTeX\fonts/pk/ljfour/l
 h/lh-t2a/dpi600\larm1200.pk><D:/Users/User/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmmi10.pfb><D:/Users/User/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/Users/User/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Users/User/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/Users/User/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Users/User/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+X/fonts/type1/public/amsfonts/cm/cmmi5.pfb><D:/Users/User/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/Users/User/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Users/User/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><D:/Users/User/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/Users/
+User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D
+:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7
+.pfb>
 Output written on D:\STUDYC\DIFFERENCIATOR\log_folder_differenciator\LATEX\LATE
-X_dump.pdf (3 pages, 116269 bytes).
+X_dump.pdf (3 pages, 137269 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
+ 198 PDF objects out of 1000 (max. 8388607)
  3 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

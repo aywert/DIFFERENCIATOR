@@ -1,5 +1,4 @@
 #include"INCLUDE\\diff_dump_functions.h"
-#include"INCLUDE\\diff_reading_functions.h"
 #include"INCLUDE\\assert_for_dump.h"
 
 static diff_dump_status verifier_for_dump_functions(const diff_node_t* node, const char* file_name)
@@ -41,11 +40,11 @@ diff_dump_status node_dump(const diff_node_t* node)
   return diff_dump_success;
 }
 
-diff_dump_status print_node_graph(const diff_node_t* node, const char* file_name)
+diff_dump_status print_node_graph(const diff_node_t* node, const char* file_name_input, const char* file_name_output)
 {   
   DIFF_DUMP_ASSERT(node, 1);
 
-  FILE* file = fopen(file_name, "w");
+  FILE* file = fopen(file_name_input, "w");
 
   if (file == NULL)
   {
@@ -59,8 +58,12 @@ diff_dump_status print_node_graph(const diff_node_t* node, const char* file_name
   fprintf(file, "}");
 
   fclose(file); file = NULL;
-  
-  system("dot -T png log_folder_differenciator//LATEX//LATEX_dump.tex -o log_folder_differenciator//READING_file.txt -Gcharset=latin1");
+  /*log_folder_acinator//acinator_graph.dot -o  log_folder_acinator//acinator_graph.png*/
+  char buffer[system_call_length] = {};
+
+  sprintf(buffer, "dot -T png %s -o %s -Gcharset=latin1", file_name_input, file_name_output);
+  system(buffer);
+  //system("dot -T png log_folder_differenciator//differenciator_graph.dot -o log_folder_differenciator//differenciator_graph.png -Gcharset=latin1");
   return diff_dump_success;
 }
 
@@ -103,7 +106,7 @@ diff_dump_status generate_graph(const diff_node_t* node, FILE* file)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-diff_dump_status analitical_latex_dump(const diff_node_t* node, const diff_node_t* diffed_node, const dvalue_t* derivative_value_buffer, const int degree, const dvalue_t variable, const char* file_name)
+diff_dump_status analitical_latex_dump(const diff_node_t* node, const diff_node_t* diffed_node, const dvalue_t* derivative_value_buffer, const int degree, const dvalue_t variable, const char* file_name, const char* output_directory)
 {
   DIFF_DUMP_ASSERT(node, 1);
   FILE* file = fopen(file_name, "w");
@@ -238,16 +241,21 @@ diff_dump_status analitical_latex_dump(const diff_node_t* node, const diff_node_
   if (status == diff_dump_failure)
     return diff_dump_failure;
 
-  system("pdflatex -output-directory=log_folder_differenciator\\LATEX log_folder_differenciator\\LATEX\\LATEX_dump.tex -quiet");
+  char buffer[system_call_length] = {};
+  
+  sprintf(buffer, "pdflatex -output-directory=%s %s -quiet", output_directory, file_name);
+  system(buffer);
+
+  //system("pdflatex -output-directory=log_folder_differenciator\\LATEX log_folder_differenciator\\LATEX\\LATEX_dump.tex -quiet");
   return diff_dump_success;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-diff_dump_status latex_dump(const diff_node_t* node, const char* file_name)
+diff_dump_status latex_dump(const diff_node_t* node, const char* file_name_input, const char* output_directory)
 {
   DIFF_DUMP_ASSERT(node, 1);
-  FILE* file = fopen(file_name, "w");
+  FILE* file = fopen(file_name_input, "w");
   
   if (file == NULL)
   {
@@ -267,7 +275,11 @@ diff_dump_status latex_dump(const diff_node_t* node, const char* file_name)
   if (status == diff_dump_failure)
     return diff_dump_failure;
 
-  system("pdflatex -output-directory=log_folder_differenciator\\LATEX log_folder_differenciator\\LATEX\\LATEX_dump.tex -quiet");
+  char buffer[system_call_length] = {};
+  
+  sprintf(buffer, "pdflatex -output-directory=%s %s -quiet", output_directory, file_name_input);
+  system(buffer);
+  //system("pdflatex -output-directory=log_folder_differenciator\\LATEX log_folder_differenciator\\LATEX\\LATEX_dump.tex -quiet");
   return diff_dump_success;
 }
 

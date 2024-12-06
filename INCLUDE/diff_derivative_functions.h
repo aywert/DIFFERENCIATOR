@@ -27,7 +27,7 @@ enum double_compare_status
     double_smaller = -1,
 };
 
-void get_analitics(void);
+void get_analitics(const char* file_name, const char* file_LATEX_dump, const char* output_directory);
 
 void simplify_function(diff_node_t* node, const dvalue_t variable);
 void make_easy_reduction(diff_node_t* node);

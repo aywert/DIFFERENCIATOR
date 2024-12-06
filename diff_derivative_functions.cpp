@@ -8,11 +8,11 @@ static void get_degree_for_tailor(int* degree);
 
 int counter_of_changes = 0;
 
-void get_analitics(void)
+void get_analitics(const char* file_name, const char* file_LATEX_dump, const char* output_directory)
 {
   printf("Let me see what we've got here\n");
-  diff_node_t* node = diff_reader(file_for_reading);
   printf("...\n");
+  diff_node_t* node = diff_reader(file_name);
   printf("Interesting\n");
   printf("Please enter point around which you wnat we to analyse your function more closely: ");
   
@@ -54,7 +54,7 @@ void get_analitics(void)
     printf(BLUE("Diffed_%d") " = %lg\n", i, derivative_value_buffer[i]);
   }
 
-  analitical_latex_dump(init_function, diffed_function, derivative_value_buffer, degree, variable, "log_folder_differenciator\\LATEX\\LATEX_dump.tex");
+  analitical_latex_dump(init_function, diffed_function, derivative_value_buffer, degree, variable, file_LATEX_dump, output_directory);
 
   tree_dtor(init_function); init_function = NULL;
   tree_dtor(diffed_function); diffed_function = NULL;
