@@ -8,7 +8,7 @@ diff_node_t* ctor_node(types_for_diff type, dvalue_t value, diff_node_t* left, d
     printf("type is %d\n", type);
     assert(type);
 
-    diff_node_t* node = (diff_node_t*)calloc(sizeof(diff_node_t), 1);
+    diff_node_t* node = (diff_node_t*)calloc(1, sizeof(diff_node_t));
     assert(node);
 
     // switch(type)

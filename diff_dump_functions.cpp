@@ -73,31 +73,31 @@ diff_dump_status generate_graph(const diff_node_t* node, FILE* file)
     
     if (node->type == NUM)
     {
-        fprintf(file, "%d [shape = Mrecord; style = filled; fillcolor=\"#4682b4\"; color = \"#000000\"; fontcolor = \"#000000\"; label = \"{ NUM | value = %lg | left = %p| right = %p}\"];\n\t", 
-                    (int)&node->value,                                                                                                          node->value,  node->left,     node->right);
+        fprintf(file, "%lld [shape = Mrecord; style = filled; fillcolor=\"#4682b4\"; color = \"#000000\"; fontcolor = \"#000000\"; label = \"{ NUM | value = %lg | left = %p| right = %p}\"];\n\t", 
+                    (long long)&node->value,                                                                                                          node->value,  node->left,     node->right);
     }
 
     if (node->type == VAR)
     {
-        fprintf(file, "%d [shape = Mrecord; style = filled; fillcolor=\"#ff7da3\"; color = \"#000000\"; fontcolor = \"#000000\"; label = \"{ VAR | value = %c | left = %p| right = %p}\"];\n\t", 
-        (int)&node->value,                                                                                                                        (char)node->value,  node->left,     node->right);
+        fprintf(file, "%lld [shape = Mrecord; style = filled; fillcolor=\"#ff7da3\"; color = \"#000000\"; fontcolor = \"#000000\"; label = \"{ VAR | value = %c | left = %p| right = %p}\"];\n\t", 
+        (long long)&node->value,                                                                                                                        (char)node->value,  node->left,     node->right);
     }
 
     if (node->type == OP)
     {
-        fprintf(file, "%d [shape = Mrecord; style = filled; fillcolor=\"#ffc765\"; color = \"#000000\"; fontcolor = \"#000000\"; label = \"{ OP | value = %c | left = %p| right = %p}\"];\n\t", 
-        (int)&node->value,                                                                                                                       (char)node->value,  node->left,     node->right);
+        fprintf(file, "%lld [shape = Mrecord; style = filled; fillcolor=\"#ffc765\"; color = \"#000000\"; fontcolor = \"#000000\"; label = \"{ OP | value = %c | left = %p| right = %p}\"];\n\t", 
+        (long long)&node->value,                                                                                                                       (char)node->value,  node->left,     node->right);
     }
 
     if (node->left)
     {
-        fprintf(file, "%d -> %d [color=\"blue\"]\n\t", (int)&node->value, (int)&node->left->value);
+        fprintf(file, "%lld -> %lld [color=\"blue\"]\n\t", (long long)&node->value, (long long)&node->left->value);
         generate_graph(node->left, file);
     }
 
     if (node->right) 
     {
-        fprintf(file, "%d -> %d [color=\"blue\"]\n\t", (int)&node->value, (int)&node->right->value);
+        fprintf(file, "%lld -> %lld [color=\"blue\"]\n\t", (long long)&node->value, (long long)&node->right->value);
         generate_graph(node->right, file);
     }
 

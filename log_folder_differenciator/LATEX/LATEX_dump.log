@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.4)  6 DEC 2024 19:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.4)  9 AUG 2025 16:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1028,7 +1028,9 @@ ex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count323
 \l__pdf_internal_box=\box67
-) (D:\STUDYC\DIFFERENCIATOR\log_folder_differenciator\LATEX\LATEX_dump.aux)
+)
+(D:\1_course\STUDYC\Differentiator\log_folder_differenciator\LATEX\LATEX_dump.a
+ux)
 \openout1 = `LATEX_dump.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
@@ -1079,8 +1081,11 @@ g
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 13.
-(D:\STUDYC\DIFFERENCIATOR\log_folder_differenciator\LATEX\LATEX_dump.out) (D:\S
-TUDYC\DIFFERENCIATOR\log_folder_differenciator\LATEX\LATEX_dump.out)
+
+(D:\1_course\STUDYC\Differentiator\log_folder_differenciator\LATEX\LATEX_dump.o
+ut)
+(D:\1_course\STUDYC\Differentiator\log_folder_differenciator\LATEX\LATEX_dump.o
+ut)
 \@outlinefile=\write4
 \openout4 = `LATEX_dump.out'.
 
@@ -2581,17 +2586,6 @@ l.66 \end{axis}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-
-Overfull \hbox (14.31609pt too wide) detected at line 70
-\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = 8 + []
- \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^@ 
-\OT1/cmr/m/n/10 1)[] + [] \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 (\OML/cmm/m/it/1
-0 x \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1)[] + [] \OMS/cmsy/m/n/10 ^^A \OT1/cm
-r/m/n/10 (\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 1)[] + [] \OM
-S/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^@ \OT1
-/cmr/m/n/10 1)[]
- []
-
 log_folder_differenciator//LATEX//LATEX_dump.tex:71: Missing $ inserted.
 <inserted text> 
                 $
@@ -2609,6 +2603,17 @@ l.71 \end{document}
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
 
+
+Overfull \hbox (3.9855pt too wide) detected at line 71
+\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) = 4 + []
+ \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^@ 
+\OT1/cmr/m/n/10 3)[] + [] \OMS/cmsy/m/n/10 ^^A \OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 x \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3)[] + [] \OMS/cmsy/m/n/10 ^^A \OT1/cm
+r/m/n/10 (\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 3)[] + \OML/c
+mm/m/it/10 o\OT1/cmr/m/n/10 ((\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/
+m/n/10 3)[])
+ []
+
 [2]
 
 log_folder_differenciator//LATEX//LATEX_dump.tex:71: LaTeX Error: \begin{center
@@ -2624,7 +2629,9 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-(D:\STUDYC\DIFFERENCIATOR\log_folder_differenciator\LATEX\LATEX_dump.aux)
+
+(D:\1_course\STUDYC\Differentiator\log_folder_differenciator\LATEX\LATEX_dump.a
+ux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -2639,7 +2646,7 @@ Package rerunfilecheck Info: File `LATEX_dump.out' has not changed.
 ### bottom level 
 Here is how much of TeX's memory you used:
  34172 strings out of 474486
- 792443 string characters out of 5744227
+ 792551 string characters out of 5744227
  1943542 words of memory out of 5000000
  55918 multiletter control sequences out of 15000+600000
  563801 words of font info for 49 fonts, out of 8000000 for 9000
@@ -2659,10 +2666,10 @@ ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/Users/
 User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D
 :/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7
 .pfb>
-Output written on D:\STUDYC\DIFFERENCIATOR\log_folder_differenciator\LATEX\LATE
-X_dump.pdf (3 pages, 137269 bytes).
+Output written on D:\1_course\STUDYC\Differentiator\log_folder_differenciator\L
+ATEX\LATEX_dump.pdf (3 pages, 136851 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
+ 199 PDF objects out of 1000 (max. 8388607)
  3 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

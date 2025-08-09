@@ -8,6 +8,9 @@ OBJFILES := main.o diff_reading_functions.o diff_dump_functions.o diff_derivativ
 
 all: $(NAMEEXE)
 
+
+
+
 run: $(NAMEEXE)
 	.\$(NAMEEXE)
 

@@ -117,17 +117,7 @@ branch_status is_var_on_the_branch(const diff_node_t* node)
     return var_not_on_the_branch;
 }
 
-double_compare_status compare_double(const double a, const double b)
-{
-  if (fabs(a-b) < epsilon_for_comparing_doubles)
-    return double_equal;
 
-  if ((a-b) > 0)
-    return double_bigger;
-
-  else 
-    return double_smaller;
-}
 
 void simplify_function(diff_node_t* node, const dvalue_t variable)
 {
@@ -441,11 +431,9 @@ diff_node_t* get_derivative_of_node(const diff_node_t* node)
   {
     case VAR:
     return _NUM(1);
-    break;
 
     case NUM:
     return _NUM(0);
-    break;
 
     case OP:
     switch((int)node->value)
@@ -498,3 +486,14 @@ diff_node_t* get_derivative_of_node(const diff_node_t* node)
   return NULL;
 }
 
+double_compare_status compare_double(const double a, const double b)
+{
+  if (fabs(a-b) < epsilon_for_comparing_doubles)
+    return double_equal;
+
+  if ((a-b) > 0)
+    return double_bigger;
+
+  else 
+    return double_smaller;
+}

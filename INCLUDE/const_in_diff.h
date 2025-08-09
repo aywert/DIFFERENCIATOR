@@ -1,7 +1,7 @@
 #ifndef CONST_IN_DIFF
 #define CONST_IN_DIFF
 
-#include"D:\STUDYC\My_labraries\colours.h"
+#include"D:\1_course\STUDYC\My_labraries\colours.h"
 #include<stdio.h>
 #include<assert.h>
 #include<limits.h>
